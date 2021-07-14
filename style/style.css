@@ -1,0 +1,122 @@
+/*
+#CCAC40
+#D85E40
+#232322
+#778F7F
+#F5ECDB
+#E8A69D
+
+
+
+/********General Styling ********/
+
+* {
+    margin: 0px;
+}
+body, html, .wrapper {
+    height: 100%;
+  }
+
+#pageContainer {
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+}
+#footerContainer {
+    position: absolute;
+}
+
+/******** Header and Footer ********/
+
+#headerContainer {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+}
+#headerLogo img{
+    height: 100px;
+    width: auto;
+    margin-left: 5%;
+}
+#footerContainer {
+    height: 300px;
+    background-color: #f5ecdb;
+    display: grid;
+    grid-template-columns: 24% auto 24% auto 24% auto 24%;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+.footerInfo {
+    margin: auto;
+    
+}
+#timesContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    margin-right:30px;
+}
+.openTimes {
+    width: 100%;
+    text-align: left;
+}
+.times {
+    text-align: right;
+}
+.verticalBreak {
+    height: 80%;
+    width: 1px;
+    background-color: #232322;
+    margin: auto;
+}
+.socialImages {
+    width: 50px;
+    height: auto;
+}
+.fixed {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    color: #eeeeee;
+    text-align: center;
+    display: table;
+  }
+  .one {
+      background-image: url('../OnlineStoreFullStack/assets/products/hero banners/twoTierWhite.png');
+  }
+/******** Hero ********/
+#heroContainer  {
+  
+}
+#heroContainer img {
+    width: 100%;
+    height: auto;
+}
+.fixImage {
+    position: fixed;
+}
+
+
+
+
+
+
+/******** Back to top ********/
+html {
+    scroll-behavior: smooth;
+  }
+
+
+@media only screen and (max-width: 768px){
+
+}
+
+@media only screen and (max-width: 550px){
+
+}
