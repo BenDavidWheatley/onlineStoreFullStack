@@ -6,39 +6,122 @@
 #F5ECDB
 #E8A69D
 
+/******** fonts ********/
 
+@font-face{
+    font-family: "fatFaceReg";
+    src: url(../assets/fonts/AbrilFatface-Regular.ttf);
+}
+@font-face{
+    font-family: "righteous";
+    src: url(../assets/fonts/Righteous-Regular.ttf);
+}
+@font-face{
+    font-family: "jose";
+    src: url(../assets/fonts/JosefinSlab-VariableFont_wght.ttf);
+}
+@font-face{
+    font-family: "freda";
+    src: url(../assets/fonts/FredokaOne-Regular.ttf);
+}
+@font-face{
+    font-family: "poiret";
+    src: url(../assets/fonts/PoiretOne-Regular.ttf);
+}
+@font-face{
+    font-family: "rale";
+    src: url(../assets/fonts/Raleway-VariableFont_wght.ttf);
+}
 
 /********General Styling ********/
 
 * {
     margin: 0px;
-}
-body, html, .wrapper {
-    height: 100%;
-  }
+    font-family: "jose";
+    color: #232322;
 
-#pageContainer {
-    position: relative;
-    min-height: 100vh;
-    height: 100%;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'poiret';
+    letter-spacing: .1em;
+}
+p {
+    font-size: 1.2em;
+}
+main {
+    position: relative;
+    margin-bottom: 300px;
+}
+
 #footerContainer {
     position: absolute;
+    margin-top: 200px;
+}
+button {
+    
+}
+button:hover {
+    
+}
+
+button:disabled, button:disabled:hover{
+    border: none;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+button{
+    -o-transition: .4s;
+    -ms-transition: .4s;
+    -moz-transition: .4s;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ccac40;
+    margin-top: 40px;
+}
+button:hover{
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+    border-radius: 100%;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    background-color: #778F7F;	
+    border-style: none;
+    color: white;
 }
 
 /******** Header and Footer ********/
 
 #headerContainer {
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
-    height: 100px;
+    height: 120px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+   
 }
 #headerLogo img{
-    height: 100px;
+    height: 80px;
     width: auto;
-    margin-left: 5%;
+    margin-left: 100%;
 }
+#headerMenu {
+    margin-right: 50%;
+}
+
 #footerContainer {
     height: 300px;
     background-color: #f5ecdb;
@@ -48,10 +131,11 @@ body, html, .wrapper {
     align-content: center;
     justify-content: center;
     align-items: flex-start;
+    position: absolute;
+    z-index: 10;
 }
 .footerInfo {
     margin: auto;
-    
 }
 #timesContainer {
     display: grid;
@@ -76,42 +160,285 @@ body, html, .wrapper {
     width: 50px;
     height: auto;
 }
-.fixed {
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 100%;
-    width: 100%;
-    color: #eeeeee;
-    text-align: center;
-    display: table;
-  }
-  .one {
-      background-image: url('../OnlineStoreFullStack/assets/products/hero banners/twoTierWhite.png');
-  }
+#logoWhite {
+    display: none;
+}
 /******** Hero ********/
+
 #heroContainer  {
-  
+    z-index: 0;
+    position: relative;
+   min-height: 100vh;
+
+
 }
 #heroContainer img {
+    margin:auto;
+    height: auto;
+    z-index: -1;
+    width: 100%;
+}
+.overlay{
+    position: absolute;
+}
+.fixImage {
+    position: fixed;   
+}
+#shift {
+    transform: translate(0 , -100vh);
+}
+#welcomeContainer {
+    position: relative;
+    margin-top: 15%;
+    z-index: 2;
+    width: 100%;
+    border-radius: 10px;  
+    margin-bottom: 30%;
+}
+#welcomeContainer span {
+    color: #778F7F;
+    font-family: 'poiret';
+    letter-spacing: .1em;
+}
+#welcomeContainer h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    letter-spacing: .1em;
+}
+#welcomeContainer p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+.content {
+    position: relative;
+    z-index: 3;
+    height: 300px;
+    padding: 20px;
+    background-color: #232322bf;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+.content h2{
+    margin: 20px; 
+    margin-top: 80px;
+    color: white;
+}
+.content p{
+    
+    color: white;
+}
+
+/****** get creative container ******/
+
+#getCreativeContainer {
+    position: relative;
+    z-index: 4;
+}
+#getCreativeInnerContainer {
+    position: relative;   
+}
+#getCreativeInnerContainer img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 4;
+}
+#getCreativeCopy {
+    position: absolute;
+    background-color: #232322;
+    border-radius: 20px;
+    width: 30%;
+    height: auto;
+    padding: 50px;  
+    left: 100px;
+    margin-top: 15%;
+    z-index: 5;
+}
+#getCreativeContainer p, #getCreativeContainer h2 {
+    color: white;
+}
+.spacer {
+    height: 600px;
+}
+
+/******** home inspiration ********/
+
+.ranges {
+    height: auto;
+    position: relative;
+    z-index: 3; 
+    width: 100%;  
+}
+.rangeTitle {
+    height: 750px;
+    width: 100%;
+    background-color: #23232280;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.rangeTitle p, .rangeTitle h1 {
+    color: white;
+}
+.rangeTitle h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.mainTitle h1 {
+    width: 60%;
+    text-align: center;
+}
+.mainTitle p {
+    width: 80%;
+    text-align: center;
+    margin-top: 40px;
+}
+.rangeContainer {
+    background-color: white; 
+    padding: 30px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.productImage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.productImageOverlay {
+    position: relative;
+}
+.imageOver {
+    position: absolute;
+}
+.imageOverlay {
+  opacity: 0;
+  transition: .5s ease;
+}
+.productImageOverlay:hover .imageOverlay {
+    opacity: 1;
+
+}
+.productInfo {
+    margin-top: 65%;
+
+}
+.productImage img {  
+    height: auto;
+    width: 100%;
+}
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.productInfo h4{
+    text-align: center;
+}
+.productInfo p {
+    margin-top: 30px;
+}
+.collections{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px; 
+}
+.productInfo button{
+    margin: 20px;
+    margin-bottom: 40px;
+    margin-top: 60px;
+    width: 80%;
+}
+/******** Social ********/
+#socialContainer {
+    width: 100%;  
+    background-color: white;
+    position: relative;
+    z-index: 5;
+
+}
+#socialContainer img {
     width: 100%;
     height: auto;
 }
-.fixImage {
-    position: fixed;
-}
-
-
-
-
-
 
 /******** Back to top ********/
-html {
+#backToTop {
     scroll-behavior: smooth;
   }
+/****** Staff ********/
 
+.staffProfile {
+    width:80%;    
+    height: auto;
+    margin: auto;
+}
+.leftSet {
+    display: grid;
+    grid-template-rows: 2% 6% 70%;
+    grid-template-columns: 25% 70%;
+    grid-gap: 5%;
+
+}
+.rightSet {
+    display: grid;
+    grid-template-rows: 2% 6% 80%;
+    grid-template-columns: 70% 25%;
+    grid-gap: 5%;
+ 
+}
+.staffPic {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    box-shadow: 10px 20px 50px  #232322;
+}
+.staffLeft {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.staffRight {
+    grid-column-start: 2;
+    grid-column-end: 3;   
+}
+.staffProfile h1 {
+    font-size: 2em;
+}
+
+.staffProfile h1 {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.staffProfile h2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.staffProfile p {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    height: auto;
+    margin-bottom: 20%;
+}
+.staffLogoBreak {
+    height: 100px; 
+    width: 100%;
+    margin-bottom: 100px;
+    text-align: center;
+}
+.logoStaff{
+    height: 100%;
+    width: auto;
+}
 
 @media only screen and (max-width: 768px){
 
