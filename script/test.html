@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <meta charset=utf-8>
+        <title>test.html</title>
+    </head>
+
+    <body>
+        
+        <div id='demo'>
+            <button type='submit' onclick="loadDoc()">Load doc</button> 
+
+
+        </div>
+
+        <script>
+        // This is the client-side script.
+        function loadDoc() {
+            console.log('botton was clicked');
+        // Initialize the HTTP request.
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'script/index.php');
+
+            // Track the state changes of the request.
+            xhr.onreadystatechange = function () {
+                const DONE = 4;
+                const OK = 200;
+                if (xhr.readyState === DONE) {
+                    if (xhr.status === OK) {
+                        console.log('statusGood');
+                        console.log(this.responseText);
+                      //  document.getElementById('demo').innerHTML = this.responseText; // 'This is the output.'
+                    } else {
+                        console.log('statusBad');
+                        console.log('Error: ' + xhr.status); // An error occurred during the request.
+                    }
+                }
+            }
+       
+
+        // Send the request to send-ajax-data.php
+        xhr.send(null);
+    };
+        </script>
+        
+    </body>
+</html>

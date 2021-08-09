@@ -190,8 +190,9 @@ button:hover{
 #welcomeContainer {
     position: relative;
     margin-top: 15%;
+    left: 60%;
     z-index: 2;
-    width: 100%;
+    width: 30%;
     border-radius: 10px;  
     margin-bottom: 30%;
 }
@@ -344,7 +345,7 @@ button:hover{
 }
 .collections{
     margin: auto;
-    margin-top: 50px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -374,6 +375,50 @@ button:hover{
 #backToTop {
     scroll-behavior: smooth;
   }
+
+/********* Design Your Own ********/
+
+.designYourOwn{
+ background-image: url('../assets/products/productSets/DSC_9184.jpg');
+ background-repeat: no-repeat;
+ background-size: 100% auto;
+ background-color: #232322;
+ justify-content: start;
+}
+.designYourOwn h1{
+    color: #232323;
+    margin-top: 5%;
+}
+.designYourOwn p {
+
+    color: #232322;
+}
+
+.wallMount img {
+    height: 250px;
+    width: auto;
+    margin-left: 30%
+ 
+}
+/******** Office ********/
+
+.office{
+    background-image: url('../assets/products/productSets/DSC_9318.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: #232322;
+    justify-content: start; 
+    align-items: flex-start;
+   }
+.office h1 {
+    margin-top: 15%;
+    
+   }
+.office h1, .office p{
+    color: #232322;
+    width: 30%;
+    margin-left: 5%;
+}
 /****** Staff ********/
 
 .staffProfile {
