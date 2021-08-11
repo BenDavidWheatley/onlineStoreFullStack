@@ -1,33 +1,3 @@
-function loadDoc() {
-    console.log('clicked');
-// Initialize the HTTP request.
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'send.php');
-
-    // Track the state changes of the request.
-    xhr.onreadystatechange = function () {
-        var DONE = 4; // readyState 4 means the request is done.
-        var OK = 200; // status 200 is a successful return.
-        console.log(DONE);
-        console.log(OK);
-        if (xhr.readyState === DONE) {
-            if (xhr.status === OK) {
-                document.getElementById('demo').innerHTML = this.responseText;
-            } else {
-                console.log('Error: ' + xhr.status); // An error occurred during the request.
-            }
-        }
-    }
-};
-
-
-
-
-
-
-
-
-
 
 class SiteInteractions {
     /*class for all the sites interactions */
@@ -37,9 +7,16 @@ let scrollTrigger = 200;
 let scrollTriggerTwo = 1450;
 let scrollTriggerThree = 2800;
 let scrollTriggerFour = 4800;
+let scrollTriggerFive = 6000;
 
 window.onscroll = function() {
-    if (window.scrollY >= scrollTriggerFour){
+    if (window.scrollY >= scrollTriggerFive){
+         
+        document.getElementById('heroImage').src= "../OnlineStoreFullStack/assets/products/heroBanners/threeTierDinning.jpg";
+    
+    } 
+    
+    else if (window.scrollY >= scrollTriggerFour){
         document.getElementById('heroImage').src= "../OnlineStoreFullStack/assets/logos/socialBanner.jpg";        
     } 
     else if (window.scrollY >= scrollTriggerThree){
@@ -53,6 +30,7 @@ window.onscroll = function() {
         document.getElementById('logoBlack').style.display = 'none';
         document.getElementById('logoWhite').style.display = 'block';
         document.getElementById('heroImage').src= "../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg";
+        document.getElementById('heroContainer').style.minHeight = "100vh";
     }
     else {
         document.getElementById('headerContainer').style.backgroundColor = 'transparent';

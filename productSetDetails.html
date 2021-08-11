@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body onload=loadDoc()>
+    <body onload=loadSetDoc()>
        <header id='headerContainer'>
             <section id='headerLogo'>
                 <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
@@ -19,7 +19,7 @@
                 </div>
                 <h2>About</h2>
 
-                <div ID='AboutDropdown'>
+                <div id='aboutDropdown'>
 
                 </div>
             </section>
@@ -29,35 +29,37 @@
         <main class='main'>
             <div class='mainProductContainer'>
                 <section class='imageContainer'> 
-                    <div >
-                        <img class='mainCloseupImage' src=''>
+                    <div class='mainCloseupImageContainer'>
+                        <img id='mainCloseupImage' src=''>
                     </div>
                     <div class='smallImagesContainer'>
                         <div class='smallDetailImage'>
-                            <img id='detailImageOne' src=''>
+                            <img id='detailSetImageOne' src=''>
                         </div>
                         <div class='smallDetailImage'>    
-                            <img id='detailImageTwo' src=''>                   
+                            <img id='detailSetImageTwo' src=''>                   
                         </div>
                         <div class='smallDetailImage'>
-                            <img id='detailImageThree' src=''>
+                            <img id='detailSetImageThree' src=''>
                         </div>
                         <div class='smallDetailImage'>
-                            <img id='detailImageFour' src=''>                      
+                            <img id='detailSetImageFour' src=''>                      
                         </div>
                         <div class='smallDetailImage'>
-                            <img id='detailImageFive' src=''>
-                        </div>             
+                            <img id='detailSetImageFive' src=''>
+                        </div>
+            
+                
                     </div>
                 </section>
 
                 <section class='specContainer'>
 
                     <div class='productInformation'>
-                        <h1 id='productTitle'></h1>
-                        <p>Cost £<span id='productCost'></span></p>
+                        <h1 id='productSetTitle'></h1>
+                        <p>Cost £<span id='productSetCost'></span></p>
 
-                        <p id='productDescription'></p>
+                        <p id='productSetDescription'></p>
 
                         <form method='Post'>
 
@@ -74,12 +76,12 @@
                         </form>
 
                         <h2>Dimensions</h2>
-                        <p>Width: <span id='productWidth'></span> mm</p>
-                        <p>Depth: <span id='productDepth'></span> mm</p>
-                        <p>Height: <span id='productHeight'></span> mm</p>
+                        <p>Width: <span id='productSetWidth'></span> mm</p>
+                        <p>Depth: <span id='productSetDepth'></span> mm</p>
+                        <p>Height: <span id='productSetHeight'></span> mm</p>
 
                         <h2>Availability</h2>
-                        <p>Current stock: <span id='productStockLevels'></span> unit/s in stock</p>
+                        <p>Current stock: <span id='productSetStockLevels'></span> unit/s in stock</p>
 
                     </div>
                     <div class=optSpecCareContainer>

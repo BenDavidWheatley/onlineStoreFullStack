@@ -1,10 +1,10 @@
 /*
 #CCAC40
 #D85E40
-#232322
+#232322 - Black
 #778F7F
 #F5ECDB
-#E8A69D
+#E8A69D -Pink
 
 /******** fonts ********/
 
@@ -50,7 +50,6 @@ p {
 }
 main {
     position: relative;
-    margin-bottom: 300px;
 }
 
 #footerContainer {
@@ -107,7 +106,7 @@ button:hover{
     position: fixed;
     z-index: 10;
     width: 100%;
-    height: 120px;
+    height: 80px;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -124,7 +123,7 @@ button:hover{
 
 #footerContainer {
     height: 300px;
-    background-color: #f5ecdb;
+    background-color: #232322;
     display: grid;
     grid-template-columns: 24% auto 24% auto 24% auto 24%;
     width: 100%;
@@ -137,6 +136,9 @@ button:hover{
 .footerInfo {
     margin: auto;
 }
+.footerInfo p, .footerInfo h3, .openTimes span, .footerInfo span {
+    color: white;
+}
 #timesContainer {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -146,6 +148,7 @@ button:hover{
 .openTimes {
     width: 100%;
     text-align: left;
+    color: white;
 }
 .times {
     text-align: right;
@@ -153,8 +156,9 @@ button:hover{
 .verticalBreak {
     height: 80%;
     width: 1px;
-    background-color: #232322;
+    background-color: #E8A69D;
     margin: auto;
+
 }
 .socialImages {
     width: 50px;
@@ -163,14 +167,15 @@ button:hover{
 #logoWhite {
     display: none;
 }
+
+/*************************** Main Landing Page ******************************/
+
 /******** Hero ********/
 
 #heroContainer  {
     z-index: 0;
     position: relative;
-   min-height: 100vh;
-
-
+    min-height: 100vh;
 }
 #heroContainer img {
     margin:auto;
@@ -299,6 +304,7 @@ button:hover{
 }
 .rangeContainer {
     background-color: white; 
+    min-height: 700px;
     padding: 30px;
     margin: 0;
     list-style: none;
@@ -358,31 +364,25 @@ button:hover{
     margin-top: 60px;
     width: 80%;
 }
-/******** Social ********/
-#socialContainer {
-    width: 100%;  
-    background-color: white;
-    position: relative;
-    z-index: 5;
 
-}
+/******** Social ********/
+
 #socialContainer img {
     width: 100%;
     height: auto;
 }
-
 /******** Back to top ********/
 #backToTop {
     scroll-behavior: smooth;
   }
 
-/********* Design Your Own ********/
+/***************************    buildYourOwn.html    ***************************/
 
 .designYourOwn{
- background-image: url('../assets/products/productSets/DSC_9184.jpg');
+ background-image: url('../assets/products/heroBanners/threeTierDinning.jpg');
  background-repeat: no-repeat;
  background-size: 100% auto;
- background-color: #232322;
+ background-color: white;
  justify-content: start;
 }
 .designYourOwn h1{
@@ -390,36 +390,76 @@ button:hover{
     margin-top: 5%;
 }
 .designYourOwn p {
-
     color: #232322;
 }
 
-.wallMount img {
-    height: 250px;
-    width: auto;
-    margin-left: 30%
- 
+
+/***************************   homeSelection.html   ***************************/
+
+.homeSelection {
+    background-image: url('../assets/products/heroBanners/twoTierDinning.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    justify-content: start;   
+    align-items: flex-start;
 }
-/******** Office ********/
+
+/***************************   officeSelection.html   ***************************/
 
 .office{
-    background-image: url('../assets/products/productSets/DSC_9318.jpg');
+    background-image: url('../assets/products/heroBanners/twoTierOffice.jpg');
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-color: #232322;
     justify-content: start; 
     align-items: flex-start;
    }
-.office h1 {
+.office h1, .homeSelection h1 {
     margin-top: 15%;
-    
    }
-.office h1, .office p{
+.office h1, .office p, .homeSelection p, .homeSelection h1 {
     color: #232322;
-    width: 30%;
+    width: 30%; 
     margin-left: 5%;
 }
-/****** Staff ********/
+
+/***************************   productDetails.html & productSetDetails.html  ***************************/
+
+.mainProductContainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}
+.imageContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.specContainer {
+    width: 40%;
+    padding-right: 8%;
+    padding-left: 3%;
+    padding-top: 0px;
+}
+.smallDetailImage{
+    width: 15%;
+}
+.smallDetailImage img {
+    width: 100%;  
+}
+.smallImagesContainer {
+    display: flex;
+    justify-content: center;
+}
+.mainCloseupImageContainer {
+    background-color: wheat;
+    height: 400px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 0px;
+}
+/***************************   staff.html   ***************************/
 
 .staffProfile {
     width:80%;    
