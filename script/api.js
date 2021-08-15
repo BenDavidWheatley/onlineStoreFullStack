@@ -63,12 +63,18 @@
                             let data = JSON.parse(array); 
                             document.getElementById('productSetTitle').innerHTML = data[0]['name'];
                             document.getElementById('productSetCost').innerHTML = data[0]['cost'];
-                            document.getElementById('productSetDescription').innerHTML = data[0]['product_description'];
+                            document.getElementById('productSetDescription').innerHTML = data[0]['description'];
                             document.getElementById('productSetWidth').innerHTML = data[0]['width'];                         
                             document.getElementById('productSetDepth').innerHTML = data[0]['depth'];
                             document.getElementById('productSetHeight').innerHTML = data[0]['height'];
-                            document.getElementById('productSetStockLevels').innerHTML = data[0]['depth'];
-
+                            document.getElementById('productSetStockLevels').innerHTML = data[0]['stock'];
+                            
+                            document.getElementById('setImageOne').src = './assets/products/productImages/' + data[0]['image_one'];
+                         /*   document.getElementById('setImageTwo').src = './assets/products/productImages/' + data[0]['image_two'];                   
+                            document.getElementById('setImageThree').src = './assets/products/productImages/' + data[0]['image_three'];        
+                            document.getElementById('setImageFour').src = './assets/products/productImages/' + data[0]['image_four'];
+                            document.getElementById('setImageFive').src = './assets/products/productImages/' + data[0]['image_five'];*/
+                           
                             document.getElementById('detailSetImageOne').src = './assets/products/productImages/' + data[0]['image_one'];
                             document.getElementById('detailSetImageTwo').src = './assets/products/productImages/' + data[0]['image_two'];
                             document.getElementById('detailSetImageThree').src = './assets/products/productImages/' + data[0]['image_three'];

@@ -7,36 +7,59 @@
         <title>Wheatley Studios</title>
     </head>
     <body>
-        <header id='headerContainer'>
-            <section id='headerLogo'>
-                <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-            </section>
-            <section id='headerMenu'>
-                <h2>Product</h2>
-                <div id='productDropdown'>
-
+        
+        <header >
+            <div class='mainHeader ' id='headerContainer'>
+                <section id='headerLogo'>
+                    <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
+                    <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
+                </section>
+                <section id='headerMenu'>
+                    <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
+                </section>
+            </div>
+            <div class='dropdownContainer'>
+                <div class='dropdown'>
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
+                                    
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='about.html'><p class='menuSix'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
                 </div>
-                <h2>About</h2>
-
-                <div ID='AboutDropdown'>
-
+                <div class='dropdownTwo'>
+                 
                 </div>
-            </section>
+            </div>  
         </header>
 
-        <main>           
+        <main>     
+            
             <section id='heroContainer'>
+                <div class='contactBannerText'>
+                    <h1><span>Welcome to <br> </span>Wheatley Studios</h1>
+                    <p>Create the perfect backdrop to your art, books and treasured objects with our fully modular shelving system.</p>
+                </div>
+                
+                <img id='heroImage' class='fixImage' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>  
+                <img  id='fixImageTwo' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>  
+              <!--    <img  class='contactImageTwo' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>      -->                           
+            </section>
+
+       <!--    <section>
+            <div  class='overlay' id='welcomeContainer'>
+                <h1><span>Welcome to <br> </span>Wheatley Studios</h1>
+                <p>Create the perfect backdrop to your art, books and treasured objects with our fully modular shelving system.</p>
+            </div>
+            <div id='heroContainer'>
                 <img id='heroImage' class='fixImage overlay' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>         
-            </section>  
+            </div>  
+            </section> -->
             
             <section id='shift'>
-                <section class='overlay' id='welcomeContainer'>
-                    <div>
-                        <h1><span>Welcome to <br> </span>Wheatley Studios</h1>
-                        <p>Create the perfect backdrop to your art, books and treasured objects with our fully modular shelving system.</p>
-                    </div>
-                </section>
 
                 <section class='rangeTitle mainTitle'>
                     <h1>The Adjustable Modular Shelving System</h1>
@@ -44,8 +67,8 @@
                 </section>
                 
                 <section id='getCreativeContainer'>
-                    <div id='getCreativeInnerContainer'>
-                        <img src="../OnlineStoreFullStack/assets/logos/scatter.png">
+                    <img src="../OnlineStoreFullStack/assets/products/heroBanners/designYourOwnBanner.jpg">
+                    <div id='getCreativeInnerContainer'>                      
                         <div id='getCreativeCopy'>
                             <h2>Get Creative</h2>
                             <p>Design your own modular shelving solution by selecting as many shelves, cupboards and desks as you need - in a range of materials and colours.</p>
@@ -53,10 +76,9 @@
                         </div>
                     </div>
                 </section>
+   
 
-                <section class='spacer'></section>
-
-                <section class='ranges'>
+                <section class='ranges officeRanges' >
                     <div class='rangeTitle'>
                         <h1>Inspiration Collections for Home</h1>
                         <p>We have put together these collections as an inspiration for what you can do and how you can arrange them. Perfect for any room.</p>
@@ -133,15 +155,15 @@
                     </div>
                 </section>
 
-                <section class='ranges officeRanges'>
+                <section class='ranges'>
                     <div class='rangeTitle'>
                         <h1>Inspiration Collections for Office</h1>
                         <p>We have put together these collections as an inspiration for what you can do and how you can arrange them. Perfect for the home office.</p>
                     </div>
-                    <div class='rangeContainer'>
+                    <div class='rangeContainer officeRanges'>
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9304.jpg'>
+                                <img class='imageOver' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9304.jpg'>
                                 <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9309.jpg'>
                             </div>
                             <div class='productInfo'>
@@ -156,7 +178,7 @@
                                 <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9275.jpg'>
                             </div>
                             <div class='productInfo'>
-                                <h4>The Forma Office, Single Workstation - Three Tier.</h4>
+                                <h4>The Forma Office Workstation - Three Tier.</h4>
                                 <h4>£600</h4>
                                 <button value='10' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
@@ -231,11 +253,11 @@
                 <p><span>Email:</span> info@wheatleystudios.com</p>
                 <p id='social'><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
+                    <a href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
                 </div>
             </section>   
         </footer>

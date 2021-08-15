@@ -1,9 +1,9 @@
 /*
-#CCAC40
-#D85E40
+#CCAC40 - yellow
+#D85E40 - red
 #232322 - Black
-#778F7F
-#F5ECDB
+#778F7F - green
+#F5ECDB - cream
 #E8A69D -Pink
 
 /******** fonts ********/
@@ -39,28 +39,20 @@
     margin: 0px;
     font-family: "jose";
     color: #232322;
+    line-height: 1.8em;
+    letter-spacing: 1px;
 
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'poiret';
     letter-spacing: .1em;
+    line-height: 1.4em;
 }
 p {
     font-size: 1.2em;
 }
 main {
     position: relative;
-}
-
-#footerContainer {
-    position: absolute;
-    margin-top: 200px;
-}
-button {
-    
-}
-button:hover {
-    
 }
 
 button:disabled, button:disabled:hover{
@@ -81,8 +73,9 @@ button{
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: #ccac40;
+    background-color: #E8A69D ;
     margin-top: 40px;
+    cursor: pointer;  
 }
 button:hover{
     -o-transition: 1s;
@@ -101,26 +94,119 @@ button:hover{
 }
 
 /******** Header and Footer ********/
-
-#headerContainer {
+header {
     position: fixed;
-    z-index: 10;
     width: 100%;
-    height: 80px;
+    z-index: 12;
+}
+#headerContainer {   
+    width: 100%;
+    height: 120px;
     display:flex;
-    justify-content: space-between;
-    align-items: center;
-   
+    align-items: center;    
+    transition: background-color 0.5s linear;
+}
+.mainHeader {
+    
+}
+.headerColor{  
+    width: 100%;
+    height: 120px;
+    display:flex;
+    align-items: center; 
+    transition: background-color 0.5s linear;
+}
+.pinkHeader {
+    background-color: #E8A69D;
+    transition: background-color 0.5s linear;
+}
+.white {
+    background-color: white;
+    transition: background-color 0.5s linear;
+}
+
+#headerLogo {
+    margin-left: 10%;
 }
 #headerLogo img{
     height: 80px;
     width: auto;
-    margin-left: 100%;
 }
 #headerMenu {
-    margin-right: 50%;
+    margin: auto;
+    margin-right: 10%;
+}
+#dropdownContainer{
+    display: flex;
+    position: relative;
+}
+.closeMenu {
+    margin:  40px;
+}
+.spinIn{
+    animation:spin 1s ease-out;
+}
+.menuButton {
+    cursor: point;
+}
+.dropdown{
+    position: absolute;
+    height: 100vh;
+    width:40%;
+    background-color:#232322;
+    margin-left: 100vw;
+    transition: margin 0.5s linear;
+    z-index: 10;  
+}
+.menuOne, .menuTwo, .menuThree, .menuFour, .menuFive, .menuSix, .menuSeven  {
+    color: white;
+    border-bottom: solid 1px #E8A69D;
+    width: 50%;
+    margin-left: 600px;
+}
+.menuOne {
+    transition: margin 0.5s linear;
+}
+.menuTwo {
+    transition: margin 0.7s linear;
+}
+.menuThree{
+    transition: margin 0.9s linear;
+}
+.menuFour {
+    transition: margin 1.1s linear;
+}
+.menuFive {
+    transition: margin 1.3s linear;
+}
+.menuSix {
+    transition: margin 1.5s linear;
+}
+.menuSeven {
+    transition: margin 1.7s linear;
 }
 
+.menuOne.menuIn, .menuTwo.menuIn, .menuThree.menuIn, .menuFour.menuIn, .menuFive.menuIn, .menuSix.menuIn, .menuSeven.menuIn {
+    margin-left: 2%;
+}
+
+.dropdownTwo {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #23232280;
+    margin-left: 100vw;
+    transition: margin 0.5s linear;
+    z-index: 5;
+
+}
+.dropdownTwo.dropdownTwoMenu {
+    margin-left: 0%;
+}
+.dropdown.dropdownMenu {
+    width: 40%;
+    margin-left: 70%;
+}
 #footerContainer {
     height: 300px;
     background-color: #232322;
@@ -131,7 +217,8 @@ button:hover{
     justify-content: center;
     align-items: flex-start;
     position: absolute;
-    z-index: 10;
+    transform: translate(0 , -10px); 
+    
 }
 .footerInfo {
     margin: auto;
@@ -175,22 +262,26 @@ button:hover{
 #heroContainer  {
     z-index: 0;
     position: relative;
-    min-height: 100vh;
-}
-#heroContainer img {
-    margin:auto;
-    height: auto;
-    z-index: -1;
-    width: 100%;
 }
 .overlay{
     position: absolute;
 }
 .fixImage {
-    position: fixed;   
+    position: fixed;  
+    margin:auto;
+    height: auto;   
+    width: 100vw; 
+}
+#fixImageTwo {
+    opacity: 1;
+    height: auto;   
+    width: 100vw; 
+
 }
 #shift {
-    transform: translate(0 , -100vh);
+    transform: translate(0 , -10px); 
+    position: relative;
+    z-index: 1; 
 }
 #welcomeContainer {
     position: relative;
@@ -224,49 +315,44 @@ button:hover{
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
 .content h2{
     margin: 20px; 
     margin-top: 80px;
     color: white;
 }
-.content p{
-    
+.content p{   
     color: white;
 }
 
 /****** get creative container ******/
 
-#getCreativeContainer {
-    position: relative;
-    z-index: 4;
+#getCreativeContainer img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
 }
 #getCreativeInnerContainer {
     position: relative;   
-}
-#getCreativeInnerContainer img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    z-index: 4;
+    height: 100vh;
 }
 #getCreativeCopy {
-    position: absolute;
     background-color: #232322;
     border-radius: 20px;
-    width: 30%;
-    height: auto;
-    padding: 50px;  
-    left: 100px;
-    margin-top: 15%;
-    z-index: 5;
+    width: 450px;
+    height: 250px;
+    padding: 30px; 
+    position: relative; 
+    left: 150px;
+    top: 240px;
+
 }
 #getCreativeContainer p, #getCreativeContainer h2 {
     color: white;
 }
-.spacer {
-    height: 600px;
+#getCreativeContainer h2{
+    margin-bottom: 20px;
 }
 
 /******** home inspiration ********/
@@ -274,7 +360,7 @@ button:hover{
 .ranges {
     height: auto;
     position: relative;
-    z-index: 3; 
+    z-index: 1; 
     width: 100%;  
 }
 .rangeTitle {
@@ -285,19 +371,20 @@ button:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.rangeTitle p, .rangeTitle h1 {
-    color: white;
+    position: relative;
+    z-index: 1;
 }
 .rangeTitle h1 {
-    font-size: 50px;
-    margin-bottom: 30px;
-}
-.mainTitle h1 {
+    font-size: 2em;
+    letter-spacing: .1em;
+    color: white;
     width: 60%;
     text-align: center;
 }
-.mainTitle p {
+.rangeTitle p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: white;
     width: 80%;
     text-align: center;
     margin-top: 40px;
@@ -305,7 +392,9 @@ button:hover{
 .rangeContainer {
     background-color: white; 
     min-height: 700px;
-    padding: 30px;
+    padding: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin: 0;
     list-style: none;
     display: flex;
@@ -330,18 +419,16 @@ button:hover{
     opacity: 1;
 
 }
-.productInfo {
-    margin-top: 65%;
-
-}
 .productImage img {  
     height: auto;
     width: 100%;
 }
 .productInfo {
+    margin-top: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .productInfo h4{
     text-align: center;
@@ -364,6 +451,8 @@ button:hover{
     margin-top: 60px;
     width: 80%;
 }
+
+/******** Office ********/
 
 /******** Social ********/
 
@@ -443,6 +532,7 @@ button:hover{
 }
 .smallDetailImage{
     width: 15%;
+    cursor: pointer;
 }
 .smallDetailImage img {
     width: 100%;  
@@ -452,13 +542,152 @@ button:hover{
     justify-content: center;
 }
 .mainCloseupImageContainer {
-    background-color: wheat;
-    height: 400px;
-    width: 80%;
+    height: auto;
+    width: 80%; 
     margin: auto;
     margin-bottom: 10%;
     margin-top: 0px;
+    display: flex;
+    overflow-x: auto;
 }
+#setImageOne {
+    width: 100%;
+    height: auto;
+}
+
+.productHeaderOne {
+    margin-bottom: 20px;
+}
+#productSetTitle {
+    font-size: 2em;
+}
+.productHeader, .cost {
+    margin-bottom: 20px;
+    margin-top:40px;
+    border-bottom: 1px solid #232322;
+    width: 50%;
+    padding-bottom: 10px;
+}
+.productHeaderSmall {
+    padding-bottom: 5px;
+    width: 30%;
+}
+.addToCartForm {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.addToCartForm input{
+    width: 30%;
+    height:  20px;
+    padding: 0px;
+}
+select {
+    height: 25px;
+    width: 31%;
+}
+.addToCartForm label {
+    margin-top: 20px;
+}
+.slide {
+width: 100%;
+flex-shrink: 0;
+height: 100%;
+}
+.margin {
+    margin-bottom: 40px;
+}
+#optSpecCareContainer, .optSpecCareCont {
+    width: 40%;
+    margin-left: 52.5%;
+}
+.optSpecCareCont {
+    border-top: 1px solid #232322;
+    border-bottom: 1px  solid #232322;
+    height: 30px;
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+#interestedIn {
+    padding-top: 50px; 
+}
+article {
+    height: 1px;
+    overflow-y: hidden;
+    transition: height 0.5s linear;
+}
+article.expanded {
+    height: 1800px;
+}
+.moreInformation{
+    margin-left: 250px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.moreInformation p {
+    font-size: 15px;
+}
+.plusMinus {
+    margin-left: 20px;
+    height: 20px;
+}
+#minus {
+    display: none;
+}
+/***************************   contactUs.html   ***************************/
+
+.contactBanner {
+    position: relative;  
+}
+.contactImage {
+    position: relative;
+    z-index: 0;
+}
+.contactImageTwo {
+    position: absolute;
+}
+.contactBannerText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1;
+    height:  auto;
+    width: 100vw;
+    position: absolute;
+}
+.contactBannerText span {
+    color: #778F7F;
+    font-family: 'poiret';
+    letter-spacing: .1em;
+}
+.contactBannerText  h1 {
+    width: 35%;
+    margin-right: 10%;
+    font-size: 2em;
+    margin-top: 20%;
+    margin-bottom: 30px;
+    letter-spacing: .1em;
+}
+.contactBannerText  p {
+    width: 35%;
+    margin-right: 10%;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+.contactImage img {
+    width: 100vw; 
+    height: auto;
+}
+iframe {
+    width: 600px;
+      height: 450px;
+      border: 0px;
+}
+
 /***************************   staff.html   ***************************/
 
 .staffProfile {
@@ -524,6 +753,17 @@ button:hover{
     height: 100%;
     width: auto;
 }
+
+
+/********** Animation **********/
+
+
+@keyframes spin {
+  100% {transform: rotate(90deg);}
+  }
+  
+
+/********** Media Queries **********/
 
 @media only screen and (max-width: 768px){
 

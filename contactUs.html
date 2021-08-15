@@ -2,21 +2,83 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css" type="text/css">
-
-
+    <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Wheatley Studios</title>
   </head>
   <body>
+    <header >
+        <div class='headerColor'>
+            <a href='index.html'><section id='headerLogo'>
+                <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
+                <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
+            </section></a>
+            <section id='headerMenu'>
+                <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
+            </section>
+        </div>
+        <div class='dropdownContainer'>
+            <div class='dropdown'>
+                <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
+                <a href='login.html'><p class='menuOne'>Login</p></a>          
+                <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
+                <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
+                <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
+                <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
+                <a href='about.html'><p class='menuSix'>About us</p></a> 
+                <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+            </div>
+            <div class='dropdownTwo'>
+             
+            </div>
+        </div>  
+    </header>
 
-    <iframe
-      width="600"
-      height="450"
-      style="border:0"
-      loading="lazy"
-      allowfullscreen
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8
-      &q=se109uz">
-  </iframe>
 
+    <main>
+        <section class='contactBanner'>
+            <div class='contactBannerText'>
+                <h1><span>Talk to us,<br> </span>get in touch</h1>
+                <p>We are always happy to help and ask any questions you may have about the Forma system.
+                    Simple fill out the form below with your question, give us a call, or come to one of our locations.
+                </p>
+            </div>
+
+            <div class='contactImage'>
+                <img  class='contactImage' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>         
+            </div>            
+        </section>
+
+        <section>
+
+            <form method='post'>
+                <label for='name'>Name</label>
+                <input type="text" name='name'>
+
+                <label for='email'>Email</label>
+                <input type='email' name='email'>
+
+                <label for='contactNumber'>Contact Number</label>
+                <input type='number' name='contactNumber'>
+
+                <label for='enquiry'>Enquiry</label>
+                <textarea name='enquiry' placeholder="How can we help"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+
+        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=cable street studios"></iframe>
+
+        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Linton Rd stellenbosch"></iframe>
+
+        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Industry City"></iframe>
+    
+        </section>
+
+    </main>
+    <script src='script/api.js'></script>
+    <script src='script/script.js'></script>
   </body>
 </html>
