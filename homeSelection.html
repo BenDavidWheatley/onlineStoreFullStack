@@ -1,64 +1,76 @@
 <!doctype html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body>
 
-        <main>
-            <header >
-                <div class='headerColor'>
-                    <a href='index.html'><section id='headerLogo'>
-                        <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                        <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-                    </section></a>
-                    <section id='headerMenu'>
-                        <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
-                    </section>
+    <body onload='numberInCart()'>
+        <header >
+            <div class='headerColor'>
+                <section id='headerLogo'>
+                    <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                    <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+                </section>
+
+                <section id='headerMenu'>
+                    <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
+                </section>
+            </div>
+
+            <div class='dropdownContainer'>
+                <div class='dropdown'>
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>        
                 </div>
-                <div class='dropdownContainer'>
-                    <div class='dropdown'>
-                        <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                        <a href='login.html'><p class='menuOne'>Login</p></a>          
-                        <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-                        <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-                        <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-                        <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-                        <a href='about.html'><p class='menuSix'>About us</p></a> 
-                        <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
-                    </div>
-                    <div class='dropdownTwo'>
-                     
-                    </div>
-                </div>  
-            </header>
 
+                <div class='dropdownTwo' onclick='openMenu()'></div>
+            </div>  
+        </header>
 
+        <main>  
+            <section class='scrollContainer'> 
+                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
+            </section>
+            
             <section class='ranges'>
                 <div class='rangeTitle homeSelection'>
                     <h1>Home Selection</h1>
                     <p>We have created these inspiration collections below.  If you can't find something  that suits your needs you can always design your own to create something unique to you.</p>
                 </div>
+
                 <div class='rangeContainer'>
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9151.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9148.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9151.jpg' alt='three tier wall mounted adjustable shelving, 6 oak shelves and 1 oak display box'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9148.jpg' alt='three tier wall mounted adjustable shelving, 6 oak shelves and 1 oak display box. isometric view with oak coffee table'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Living Room - Three Tier.</h4>
                             <h4>£450</h4>
                             <button value='3' onclick='sendSetId(this.value)'>View Product</button>
                         </div>
                     </div>
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9184.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9190.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9184.jpg' alt='three tier wall mounted adjustable shelving on white background, 3 oak shelves and 3 oak cupboards'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9190.jpg' alt='three tier wall mounted adjustable shelving on white background, 3 oak shelves and 3 oak cupboards isometric view'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Dining Room - Three Tier.</h4>
                             <h4>£610</h4>
@@ -68,61 +80,63 @@
                     
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9196.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9201.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9196.jpg' alt='Two tier wall mounted adjustable shelving on white background, 4 oak shelves and 2 oak cupboards'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9201.jpg' alt='Two tier wall mounted adjustable shelving on white background, 4 oak shelves and 2 oak cupboards isometric view'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Dining Room - Two Tier.</h4>
                             <h4>£530</h4>
                             <button value='5' onclick='sendSetId(this.value)'>View Product</button>
                         </div>
-                    </div>                        
+                    </div>    
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9153.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9179.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9153.jpg' alt='Two tier wall mounted adjustable shelving on white background, 8 oak shelves'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9179.jpg' alt='Two tier wall mounted adjustable shelving on white background, 8 oak shelves, isometric view'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Display Shelves - Two Tier.</h4>
                             <h4>£425</h4>
                             <button value='6' onclick='sendSetId(this.value)'>View Product</button>
                         </div>
-                    </div>      
+                    </div>   
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9211.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9215.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9211.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves and 3 oak cupboards'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9215.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves and 3 oak cupboards, isometric view'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Dining room - Three Tier Full Height.</h4>
                             <h4>£650</h4>
                             <button value='7' onclick='sendSetId(this.value)'>View Product</button>
                         </div>
                     </div>
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9221.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9229.jpg'>
+                            <img  class='imageOver ' src='./assets/products/productImages/DSC_9221.jpg' alt='Three tier wall mounted adjustable shelving on red background, 5 oak shelves and 3 oak cupboards'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9229.jpg' alt='Three tier wall mounted adjustable shelving on red background, 5 oak shelves and 3 oak cupboards, isometric'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>The Forma Display Shelves - Three Tier.</h4>
                             <h4>£740</h4>
-                            <button value='8' onclick='sendSetId(this.value)'>View Product</button>
+                            <button  value='8' onclick='sendSetId(this.value)'>View Product</button>
                         </div>
                     </div>              
                 </div>
             </section>
-
-
-
-
         </main>
         
-
-        <footer id='footerContainer'>
+        <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
-                <div id='timesContainer'>
+                <div class='timesContainer'>
                     <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
                     <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
@@ -132,16 +146,19 @@
                     <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
                 </div>
             </section>  
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Location</h3>
-                <p>143</p>
-                <p>Trafalger Street</p>
-                <p>Greenwich</p>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
                 <p>london</p>
-                <p>SE10 7PQ</p>
+                <p>E1W 3HB</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Menu</h3>
                 <p>Home Products</p>
@@ -150,19 +167,20 @@
                 <p>About</p>
                 <p>Meet the team</p>
             </section>
+
             <div class='verticalBreak'></div>
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
-                <p><span>Phone:</span> 081 352 3313</p>
-                <p><span>Email:</span> info@wheatleystudios.com</p>
-                <p id='social'><span>Social</p>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
-
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
             </section>   
         </footer>

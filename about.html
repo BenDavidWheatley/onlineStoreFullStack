@@ -1,115 +1,151 @@
 <!doctype html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body>
+
+    <body onload='numberInCart()'>
+
         <header >
             <div class='headerColor'>
-                <a href='index.html'><section id='headerLogo'>
-                    <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                    <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-                </section></a>
+                <section id='headerLogo'>
+                    <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                    <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+                </section>
                 <section id='headerMenu'>
                     <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
                 </section>
             </div>
+
             <div class='dropdownContainer'>
                 <div class='dropdown'>
-                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                    <a href='login.html'><p class='menuOne'>Login</p></a>          
-                    <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-                    <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-                    <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-                    <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-                    <a href='about.html'><p class='menuSix'>About us</p></a> 
-                    <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>        
                 </div>
-                <div class='dropdownTwo'>
-                 
+
+                <div class='dropdownTwo' onclick='openMenu()'>                
                 </div>
             </div>  
         </header>
-    
+
         <main id='staffMainContainer'>
+
+            <section class='scrollContainer'> 
+                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
+            </section>
+        
+            <section class='contactBanner'>
+                <div class='contactBannerText'>
+                    <h1>About us</h1>
+                    <p>At Wheatley Studios we have an amazing team. Find out more about us below</p>
+                </div>
+    
+                <div class='contactImage'>
+                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='two tier modular shelving system on white background'>         
+                </div>            
+            </section>
+
+
             <section id='staffContainer'> 
-                <h1>All about us</h1>
+                <div class='staffProfile'>
+                    <img class='staffPic' src='./assets/staff/ben.png' alt='image of owner Ben'>
+                    <div class='staffCopy'>
+                        <h1>Ben</h1>
+                        <h2>Owner</h2>
+                        <p class='aboutStaffMember'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
+                            <br><br>
+                            Nisl
+                        condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                        <p class='staffViewMore' onclick='openBio(0)'>View more </p> 
+                    </div>
+                </div>
+
+                <div class='breakLine'></div>
+
+                <div class='staffProfile'>                   
+                    <div class='staffCopy'>
+                        <h1>Hannah</h1>
+                        <h2>Product Design and development</h2>
+                        <p class='aboutStaffMember'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vestibulum ante tincidunt lacinia pharetra. Maecenas non interdum mauris. Maecenas accumsan, arcu bibendum rhoncus aliquet, magna orci tincidunt velit, eu suscipit lacus lorem ut urna. Suspendisse id eros quis leo maximus interdum. Pellentesque id facilisis nisl. Morbi aliquam, risus a ultricies sollicitudin, ligula mauris lobortis dolor, vitae fringilla dolor ex ullamcorper nisl. Fusce suscipit egestas purus ac iaculis. Phasellus cursus, nibh in facilisis efficitur, dolor eros dignissim velit, et interdum ante odio sit amet risus. Quisque pretium pulvinar commodo. Ut congue leo nisl, ut vulputate elit pretium malesuada. Vivamus in ornare metus, et congue sem.
+                            <br><br>
+                            Proin quis rutrum enim, quis finibus sem. Vestibulum eget mauris dui. Nullam lobortis, nisi eget suscipit rhoncus, ex diam ornare nibh, eget ornare turpis lorem vel libero. Proin volutpat consequat nulla, in iaculis arcu. Phasellus eget justo id orci iaculis venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque condimentum nisl sit amet suscipit ullamcorper. Integer pretium nisi a mauris efficitur, et venenatis risus scelerisque. Fusce vel malesuada felis. Nulla fringilla leo eu convallis finibus. Curabitur at ligula eleifend, ullamcorper tortor malesuada, egestas leo. Aliquam dui nisi, ornare ut dolor eget, scelerisque efficitur felis. Integer nunc nunc, pharetra in metus et, aliquam scelerisque ante.</p>
+                        <p class='staffViewMore' onclick='openBio(1)'>View more </p>   
+                    </div>
+                    <img class='staffPic' src='./assets/staff/mbali.png' alt='Image of Hannah, product Design and development'>
+                </div>
+
+                <div class='breakLine'></div>
+
+                <div class='staffProfile'>
+                    <img class='staffPic' src='./assets/staff/shane.png' alt='Image of Shane, Research and Development'>
+                    <div class='staffCopy'>
+                        <h1>Shane </h1>
+                        <h2>Research and Development</h2>
+                        <p class='aboutStaffMember'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum.<br><br> Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
+                        Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                        <p class='staffViewMore' onclick='openBio(2)'>View more </p> 
+                    </div>
+                </div>
+
+                <div class='breakLine'></div>
+
+                <div class='staffProfile'>                   
+                    <div class='staffCopy'>
+                        <h1>Inaki </h1>
+                        <h2>Head manufacturer</h2>
+                        <p class='aboutStaffMember'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
+                        Nisl condimentum id venenatis a condimentum vitae sapien.<br><br> Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                        <p class='staffViewMore' onclick='openBio(3)'>View more </p> 
+                    </div>
+                    <img class='staffPic' src='./assets/staff/inaki.png' alt='Image of Inaki, Head manufacturer.'>
+                </div>
+
+                <div class='breakLine'></div>
 
                 <div class='staffProfile leftSet'>
-                    <img class='staffPic staffLeft' src='../OnlineStoreFullStack/assets/staff/ben.png'>
-                    <h1>Ben</h1>
-                    <h2>Owner</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
-                        <br><br>
-                        Nisl
-                     condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                    <img class='staffPic staffLeft' src='./assets/staff/shu.png' alt='Image of She, Sales and Social Media'>
+                    <div class='staffCopy'>
+                        <h1>Shu</h1>
+                        <h2>Sales and Social Media</h2>
+                        <p class='aboutStaffMember'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus.<br><br> Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
+                        Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                        <p class='viewMoreInfo staffViewMore' onclick='openBio(4)'>View more </p> 
+                    </div>
                 </div>
 
-                <div class='staffLogoBreak'>
-                    <img class='logoStaff' src='../OnlineStoreFullStack/assets/logos/logoYellow.png'>
-                </div>
-
-                <div class='staffProfile rightSet'>
-                    <img class='staffPic staffRight' src='../OnlineStoreFullStack/assets/staff/mbali.png'>
-                    <h1>Hannah</h1>
-                    <h2>Product Design and development</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vestibulum ante tincidunt lacinia pharetra. Maecenas non interdum mauris. Maecenas accumsan, arcu bibendum rhoncus aliquet, magna orci tincidunt velit, eu suscipit lacus lorem ut urna. Suspendisse id eros quis leo maximus interdum. Pellentesque id facilisis nisl. Morbi aliquam, risus a ultricies sollicitudin, ligula mauris lobortis dolor, vitae fringilla dolor ex ullamcorper nisl. Fusce suscipit egestas purus ac iaculis. Phasellus cursus, nibh in facilisis efficitur, dolor eros dignissim velit, et interdum ante odio sit amet risus. Quisque pretium pulvinar commodo. Ut congue leo nisl, ut vulputate elit pretium malesuada. Vivamus in ornare metus, et congue sem.
-                        <br><br>
-                        Proin quis rutrum enim, quis finibus sem. Vestibulum eget mauris dui. Nullam lobortis, nisi eget suscipit rhoncus, ex diam ornare nibh, eget ornare turpis lorem vel libero. Proin volutpat consequat nulla, in iaculis arcu. Phasellus eget justo id orci iaculis venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque condimentum nisl sit amet suscipit ullamcorper. Integer pretium nisi a mauris efficitur, et venenatis risus scelerisque. Fusce vel malesuada felis. Nulla fringilla leo eu convallis finibus. Curabitur at ligula eleifend, ullamcorper tortor malesuada, egestas leo. Aliquam dui nisi, ornare ut dolor eget, scelerisque efficitur felis. Integer nunc nunc, pharetra in metus et, aliquam scelerisque ante.</p>
-                </div>
-
-                <div class='staffLogoBreak'>
-                    <img class='logoStaff' src='../OnlineStoreFullStack/assets/logos/logoYellow.png'>
-                </div>
-
-                <div class='staffProfile leftSet'>
-                    <img class='staffPic staffLeft' src='../OnlineStoreFullStack/assets/staff/shane.png'>
-                    <h1>Shane </h1>
-                    <h2>Research and Development</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum.<br><br> Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
-                    Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
-                </div>
-
-                <div class='staffLogoBreak'>
-                    <img class='logoStaff' src='../OnlineStoreFullStack/assets/logos/logoYellow.png'>
-                </div>
+                <div class='breakLine'></div>
 
                 <div class='staffProfile rightSet'>
-                    <img class='staffPic staffRight' src='../OnlineStoreFullStack/assets/staff/inaki.png'>
-                    <h1>Inaki </h1>
-                    <h2>Head manufacturer</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
-                    Nisl condimentum id venenatis a condimentum vitae sapien.<br><br> Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                    <div class='staffCopy'>
+                        <h1>Zoe</h1>
+                        <h2>Head of marketing</h2>
+                        <p class='aboutStaffMember'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
+                        Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec.<br><br> Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
+                        <p class='staffViewMore' onclick='openBio(5)'>View more </p> 
+                    </div>   
+                    <img class='staffPic' src='./assets/staff/zoe.png' alt='Image of Zoe, Head of marketing.'>
                 </div>
-                <div class='staffLogoBreak'>
-                    <img class='logoStaff' src='../OnlineStoreFullStack/assets/logos/logoYellow.png'>
-                </div>
-                <div class='staffProfile leftSet'>
-                    <img class='staffPic staffLeft' src='../OnlineStoreFullStack/assets/staff/shu.png'>
-                    <h1>Shu</h1>
-                    <h2>Sales and Social Media</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus.<br><br> Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
-                    Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec. Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
-                </div>
-                <div class='staffLogoBreak'>
-                    <img class='logoStaff' src='../OnlineStoreFullStack/assets/logos/logoYellow.png'>
-                </div>
-                <div class='staffProfile rightSet'>
-                    <img class='staffPic staffRight' src='../OnlineStoreFullStack/assets/staff/zoe.png'>
-                    <h1>Zoe</h1>
-                    <h2>Head of marketing</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ligula ullamcorper malesuada proin libero. Egestas dui id ornare arcu odio ut sem. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elit eget gravida cum sociis natoque penatibus. Feugiat in ante metus dictum at. Lorem dolor sed viverra ipsum nunc aliquet. Vitae purus faucibus ornare suspendisse sed. Eros in cursus turpis massa tincidunt. Nisl purus in mollis nunc sed id semper risus in. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Eget nunc lobortis mattis aliquam faucibus.
-                    Nisl condimentum id venenatis a condimentum vitae sapien. Viverra adipiscing at in tellus. Urna molestie at elementum eu facilisis. Congue eu consequat ac felis donec et odio. Rhoncus mattis rhoncus urna neque viverra justo nec.<br><br> Cursus euismod quis viverra nibh cras pulvinar mattis. Tellus elementum sagittis vitae et leo duis ut diam. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tempor orci dapibus ultrices in iaculis. In massa tempor nec feugiat nisl pretium fusce id. Lacus luctus accumsan tortor posuere ac. Ultrices gravida dictum fusce ut placerat orci nulla. Sociis natoque penatibus et magnis dis. Vulputate ut pharetra sit amet aliquam. Iaculis eu non diam phasellus. At consectetur lorem donec massa sapien faucibus et molestie ac.</p>
-                </div>
+
             </section>
         </main>
-        <footer id='footerContainer'>
+
+        <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
-                <div id='timesContainer'>
+                <div class='timesContainer'>
                     <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
                     <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
@@ -119,16 +155,19 @@
                     <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
                 </div>
             </section>  
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Location</h3>
-                <p>143</p>
-                <p>Trafalger Street</p>
-                <p>Greenwich</p>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
                 <p>london</p>
-                <p>SE10 7PQ</p>
+                <p>E1W 3HB</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Menu</h3>
                 <p>Home Products</p>
@@ -137,19 +176,20 @@
                 <p>About</p>
                 <p>Meet the team</p>
             </section>
+
             <div class='verticalBreak'></div>
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
-                <p><span>Phone:</span> 081 352 3313</p>
-                <p><span>Email:</span> info@wheatleystudios.com</p>
-                <p id='social'><span>Social</p>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
-
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
             </section>   
         </footer>

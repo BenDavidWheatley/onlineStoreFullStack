@@ -1,78 +1,89 @@
 <!doctype html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body>
+
+    <body onload='numberInCart()'>
         <header >
             <div class='headerColor'>
-                <a href='index.html'><section id='headerLogo'>
-                    <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                    <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-                </section></a>
+                <section id='headerLogo'>
+                    <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                    <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+                </section>
+
                 <section id='headerMenu'>
                     <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
                 </section>
             </div>
+
             <div class='dropdownContainer'>
                 <div class='dropdown'>
-                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                    <a href='login.html'><p class='menuOne'>Login</p></a>          
-                    <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-                    <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-                    <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-                    <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-                    <a href='about.html'><p class='menuSix'>About us</p></a> 
-                    <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>        
                 </div>
-                <div class='dropdownTwo'>
-                 
-                </div>
+
+                <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
 
         <main>
-            <section>
-
-
+            <section class='scrollContainer'> 
+                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
             </section>
+
             <section class='ranges'>
                 <div class='rangeTitle designYourOwn'>
                     <h1>Design Your Own</h1>
                     <p>Design your own modular shelving solution by selecting as many shelves, cupboards and desks as you need - in a range of materials and colours.</p>
                 </div>
+
                 <div class='rangeContainer'>
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9349.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9348.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9349.jpg' alt='front view oak shelf on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9348.jpg' alt='isometric view oak shelf on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>1. The Forma adjustable shelf, wood options.</h4>
-                            <h4>£30 - £45</h4>
+                            <h4>£45</h4>
                             <button value='4' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div>
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9340.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9342.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9340.jpg' alt='front view white shelf on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9342.jpg' alt='isometric view white shelf on white background'>
                         </div>
+
                         <div class='productInfo'>
-                            <h4>1. The Forma adjustable shelf, painted options.</h4>
-                            <h4>£30 - £45</h4>
+                            <h4>2. The Forma adjustable shelf, painted options.</h4>
+                            <h4>£45</h4>
                             <button value='6' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div>
                     
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9355.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9358.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9355.jpg' alt='front view white desk on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9358.jpg' alt='isometric view white desk on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>3. The Forma adjustable desk unit.</h4>
                             <h4>£88</h4>
@@ -82,72 +93,76 @@
 
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9374.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9376.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9374.jpg' alt='front view oak cupboard with white doors on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9376.jpg' alt='isometric view oak cupboard with white doors on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>4. The Forma adjustable cupboard unit.</h4>
-                            <h4>£120 - £140</h4>
+                            <h4>£140</h4>
                             <button value='19' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div> 
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9368.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9367.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9368.jpg' alt='front view oak display box on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9367.jpg' alt='isometric view oak display box on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>5. The Forma adjustable display box.</h4>
-                            <h4>£85 - £105</h4>
+                            <h4>£105</h4>
                             <button value='14' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div> 
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay wallMount'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9208.jpg'>
-                            <img  class='imageOver imageOverlay wallMount' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9206.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9208.jpg' alt='front view oak wall mount on white background'>
+                            <img  class='imageOver imageOverlay wallMount' src='./assets/products/productImages/DSC_9206.jpg' alt='isometric view oak wall mount on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>6. The Forma wall mount additional.</h4>
-                            <h4>£10 - £25</h4>
+                            <h4>£25</h4>
                             <button value='26' onclick='sendId(this.value)'>View Product</button>
                         </div>
-                    </div>      
+                    </div>    
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay wallMount'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9202.jpg'>
-                            <img  class='imageOver imageOverlay wallMount' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9206.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9202.jpg' alt='front view oak wall mount on white background'>
+                            <img  class='imageOver imageOverlay wallMount' src='./assets/products/productImages/DSC_9206.jpg' alt='isometric view oak wall mount on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>7. The Forma wall mount pair</h4>
-                            <h4>£15 - £40</h4>
+                            <h4>£40</h4>
                             <button value='24' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div>  
+
                     <div class='collections'>
                         <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9999.jpg'>
-                            <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9090.jpg'>
+                            <img class='imageOver ' src='./assets/products/productImages/DSC_9999.jpg' alt='front view of black hook on white background'>
+                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9090.jpg' alt='isometric view of black hook on white background'>
                         </div>
+
                         <div class='productInfo'>
                             <h4>8. The Forma Hanger.</h4>
-                            <h4>£10 - £20</h4>
+                            <h4>£20</h4>
                             <button value='28' onclick='sendId(this.value)'>View Product</button>
                         </div>
                     </div>                
                 </div>
             </section>
-
-
-
-
         </main>
         
-
-        <footer id='footerContainer'>
+        <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
-                <div id='timesContainer'>
+                <div class='timesContainer'>
                     <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
                     <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
@@ -157,16 +172,19 @@
                     <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
                 </div>
             </section>  
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Location</h3>
-                <p>143</p>
-                <p>Trafalger Street</p>
-                <p>Greenwich</p>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
                 <p>london</p>
-                <p>SE10 7PQ</p>
+                <p>E1W 3HB</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Menu</h3>
                 <p>Home Products</p>
@@ -175,19 +193,20 @@
                 <p>About</p>
                 <p>Meet the team</p>
             </section>
+
             <div class='verticalBreak'></div>
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
-                <p><span>Phone:</span> 081 352 3313</p>
-                <p><span>Email:</span> info@wheatleystudios.com</p>
-                <p id='social'><span>Social</p>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
-
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
             </section>   
         </footer>

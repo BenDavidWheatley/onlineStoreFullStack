@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body onload='numberInCart()'>
+    <body onload='cart(), productCart(), grandTotal(), numberInCart(), finalCheckout()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -33,68 +33,93 @@
                     <div class='menuSeven' id='cartAndQuant'>   
                         <a href='cart.html'><p>Cart </p></a>    
                         <p id='cartQuant'></p>
-                    </div>          
+                    </div>        
                 </div>
 
                 <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
+        <main class='main' id='cartPageContainer'>
+            
+            <h1 class='shoppingClassTitle'>Final Checkout</h1>
 
-        <main>
-            <section class='scrollContainer'> 
-                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
+            <section id='cloneCart' class='cloneCart'>
+                <div id='cartContainer' class='cartContainer'>
+                    <div class='cartInfoContainer checkoutProducts'>
+                        <p class='cartTitle'></p>
+                        <p>Quantity - <span type='number' class='cartQuantity'></span></p>                      
+                        <p>Chosen Finish - <span class='cartFinish'></span></p>
+                        <p>Product cost - <span class='cartCost'>1</span></p>
+                        <p>Total cost - <span class='cartTotalCost'></span></p>                
+                    </div>
+                </div>
             </section>
 
-            <section class='ranges'>
-                <div class='rangeTitle office'>
-                    <h1>Office</h1>
-                    <p>We have created these inspiration collections below. If you can't find something that suits your needs you can always design your own to create Something unique to you.</p>
+            <section id='cloneProdCart' class='cloneProdCart'>
+                <div id='cartProdContainer' class='cartProdContainer '>
+                    <div class='cartProdInfoContainer checkoutProducts' >
+                        <p class='cartProdTitle'></p>                
+                        <p>Quantity - <span name='quantity' type='number' class='cartProdQuantity'></span></p>
+                        <p>Chosen Finish - <span class='cartProdFinish'></span></p>
+                        <p>Product cost - <span class='cartProdCost'></span></p>
+                        <p>Total cost - <span class='cartProdTotalCost'></span></p>
+                    </div>
                 </div>
-                
-                <div class='rangeContainer officeRanges'>
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver' src='./assets/products/productImages/DSC_9304.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9309.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks, isometric view'>
-                        </div>
+            </section>
+  
+            <section>
+                <p id='emptyCart'></p>
+                <p>Grand Total = <span id='grandTotal'></span></p>
+                <button id='checkoutButton' onclick="checkout()">Checkout</button>
+            </section>
+            
+            <section>
+                <form method='POST' action='orderPlaced.html'>
+                    <h2>Delivery Address</h2>
 
-                        <div class='productInfo'>
-                            <h4>The Forma Office, Two Workstation - Three Tier.</h4>
-                            <h4>£500</h4>
-                            <button value='9' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>
+                    <label>Line 1</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name' required >
 
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='./assets/products/productImages/DSC_9272.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9275.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk, isometric view'>
-                        </div>
+                    <label>Line 2</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road' required >
 
-                        <div class='productInfo'>
-                            <h4>The Forma Office Workstation - Three Tier.</h4>
-                            <h4>£600</h4>
-                            <button value='10' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>
+                    <label>Line 3</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town' required>
+
+                    <label>Line 4</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province' required>
+
+                    <label>Line 5</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code' required>
+
+
                     
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='./assets/products/productImages/DSC_9318.jpg' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9334.jpg ' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk, isometric view'>
-                        </div>
+                    <h2>Billing Address</h2>
 
-                        <div class='productInfo'>
-                            <h4>The Forma Office, Single Workstation - Two Tier.</h4>
-                            <h4>£340</h4>
-                            <button value='11' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>                        
-                </div>           
+                    <label from='same'>Billing address the same as delivery</label>
+                    <input type='checkbox'>
+                    
+                    <label>Line 1</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name'>
+
+                    <label>Line 2</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road'>
+
+                    <label>Line 3</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town'>
+
+                    <label>Line 4</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province'>
+
+                    <label>Line 5</label>
+                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code'>
+
+                    <button type='submit'>Place Order</button>
+                </form>
             </section>
         </main>
-        
-        <footer class='footerContainer nonHomePageFooter'>
+
+        <footer class='footerContainer nonHomePageFooter cartFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
                 <div class='timesContainer'>
@@ -130,7 +155,7 @@
             </section>
 
             <div class='verticalBreak'></div>
-
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
                 <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
@@ -143,9 +168,9 @@
                     <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
                     <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
-            </section>         
+            </section>   
         </footer>
-        <script src='script/script.js'></script> 
-        <script src='script/api.js'></script> 
+        <script src='script/api.js'></script>
+        <script src='script/script.js'></script>
     </body>
 </html> 

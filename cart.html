@@ -1,26 +1,147 @@
-<header >
-    <div class='headerColor'>
-        <a href='index.html'><section id='headerLogo'>
-            <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-            <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-        </section></a>
-        <section id='headerMenu'>
-            <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
-        </section>
-    </div>
-    <div class='dropdownContainer'>
-        <div class='dropdown'>
-            <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-            <a href='login.html'><p class='menuOne'>Login</p></a>          
-            <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-            <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-            <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-            <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-            <a href='about.html'><p class='menuSix'>About us</p></a> 
-            <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
-        </div>
-        <div class='dropdownTwo'>
-         
-        </div>
-    </div>  
-</header>
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="style/style.css" type="text/css">
+        <title>Wheatley Studios</title>
+    </head>
+
+    <body onload='cart(), productCart(), emptyCart(), grandTotal(), numberInCart()'>
+        <header >
+            <div class='headerColor'>
+                <section id='headerLogo'>
+                    <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                    <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+                </section>
+
+                <section id='headerMenu'>
+                    <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
+                </section>
+            </div>
+
+            <div class='dropdownContainer'>
+                <div class='dropdown'>
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>        
+                </div>
+
+                <div class='dropdownTwo' onclick='openMenu()'></div>
+            </div>  
+        </header>
+        <main class='main' id='cartPageContainer'>
+            
+            <h1 class='shoppingClassTitle'>Shopping Cart</h1>
+
+            <section id='cloneCart' class='cloneCart'>
+                <div id='cartContainer' class='cartContainer'>
+                    <img class='cartImage' src=''>
+                    <div class='cartInfoContainer'>
+                        <h2 class='cartTitle'></h2>
+                        <label for='quantity'>Quantity - </label>
+                        <input type='number' class='cartQuantity'></input>
+                        <p>Chosen Finish - <span class='cartFinish'></span></p>
+                        <p>Product cost - <span class='cartCost'>1</span></p>
+                        <p>Total cost - <span class='cartTotalCost'></span></p>
+                        <div class='cartButContainer'>
+                            <button class='updateSetCart cartButton' onclick='updateSetQuantity(this)' >Update Cart</button>
+                            <button class='removeFromCart cartRemoveButton' onclick='removeFromCart(this.id)'>Remove From Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='cloneProdCart' class='cloneProdCart'>
+                <div id='cartProdContainer' class='cartProdContainer'>
+                    <img class='cartProdImage' src=''>
+                    <div class='cartProdInfoContainer'>
+                        <h2 class='cartProdTitle'></h2>
+                        <label for='quantity'>Quantity - </label>
+                        <input name='quantity' type='number' class='cartProdQuantity'></input>
+                        <p>Chosen Finish - <span class='cartProdFinish'></span></p>
+                        <p>Product cost - <span class='cartProdCost'></span></p>
+                        <p>Total cost - <span class='cartProdTotalCost'></span></p>
+                        <div class='cartButContainer'>
+                            <button class='updateProdCart cartButton' onclick='updateQuantity(this)' >Update Cart</button>
+                            <button class='removeProdFromCart cartRemoveButton' onclick='removeProductFromCart(this.id)'>Remove From Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <p id='grandTotal'></p>
+            <section>
+                <p>Grand Total = <span id='emptyCart'></span></p>
+                <button id='checkoutButton' onclick="checkout()">Checkout</button>
+
+            </section>
+            
+
+        </main>
+
+        <footer class='footerContainer nonHomePageFooter cartFooter'>
+            <section class='footerInfo'>
+                <h3>Opening Hours</h3>
+                <div class='timesContainer'>
+                    <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
+                    <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
+                    <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
+                    <p class='openTimes'><span>Thursday:</span></p><p class='times'> 9am - 9pm </p>
+                    <p class='openTimes'><span>Friday:</span></p><p class='times'> 9am - 6pm</p>
+                    <p class='openTimes'><span>Saturday:</span></p><p class='times'>9am - 6pm</p>
+                    <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
+                </div>
+            </section>  
+
+            <div class='verticalBreak'></div>
+
+            <section class='footerInfo'>
+                <h3>Location</h3>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
+                <p>london</p>
+                <p>E1W 3HB</p>
+            </section>
+
+            <div class='verticalBreak'></div>
+
+            <section class='footerInfo'>
+                <h3>Menu</h3>
+                <p>Home Products</p>
+                <p>Office</p>
+                <p>Build Your Own</p>
+                <p>About</p>
+                <p>Meet the team</p>
+            </section>
+
+            <div class='verticalBreak'></div>
+            
+            <section class='footerInfo'>
+                <h3>Contact</h3>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
+                <div>
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
+                </div>
+            </section>   
+        </footer>
+        <script src='script/api.js'></script>
+        <script src='script/script.js'></script>
+    </body>
+</html> 

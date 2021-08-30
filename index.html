@@ -6,68 +6,60 @@
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body>
+    <body onload='numberInCart()'>
         
-        <header >
+        <header>
             <div class='mainHeader ' id='headerContainer'>
                 <section id='headerLogo'>
-                    <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                    <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
+                    <img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'>
+                    <img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'>
                 </section>
                 <section id='headerMenu'>
                     <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
                 </section>
             </div>
+
             <div class='dropdownContainer'>
                 <div class='dropdown'>
-                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                                    
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>
                     <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
                     <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
                     <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
                     <a href='about.html'><p class='menuFour'>About us</p></a> 
                     <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
-                    <a href='about.html'><p class='menuSix'>About us</p></a> 
-                    <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>    
                 </div>
-                <div class='dropdownTwo'>
-                 
-                </div>
+
+                <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
 
         <main>     
+            <section class='scrollContainer'> 
+                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
+            </section>
             
             <section id='heroContainer'>
                 <div class='contactBannerText'>
                     <h1><span>Welcome to <br> </span>Wheatley Studios</h1>
                     <p>Create the perfect backdrop to your art, books and treasured objects with our fully modular shelving system.</p>
-                </div>
-                
-                <img id='heroImage' class='fixImage' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>  
-                <img  id='fixImageTwo' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>  
-              <!--    <img  class='contactImageTwo' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>      -->                           
+                </div>               
+                <img id='heroImage' class='fixImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='Two tier oak adjustable modular shelving on white back ground'>  
+                <img  id='fixImageTwo' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='Two tier oak adjustable modular shelving on white back ground'>     
             </section>
-
-       <!--    <section>
-            <div  class='overlay' id='welcomeContainer'>
-                <h1><span>Welcome to <br> </span>Wheatley Studios</h1>
-                <p>Create the perfect backdrop to your art, books and treasured objects with our fully modular shelving system.</p>
-            </div>
-            <div id='heroContainer'>
-                <img id='heroImage' class='fixImage overlay' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>         
-            </div>  
-            </section> -->
             
             <section id='shift'>
-
                 <section class='rangeTitle mainTitle'>
                     <h1>The Adjustable Modular Shelving System</h1>
                     <p>Pairing industrial and Scandinavian aesthetics, the Forma wall shelf strikes a beautiful balance between these two design movements. Composed of  wood with steel accents, the Forma adds interest to a space, providing the perfect backdrop to your art, books and treasured objects. The space between shelves can be adjusted allowing for endless arrangements.  Each part is sold separately and is completely modular.</p>
                 </section>
                 
                 <section id='getCreativeContainer'>
-                    <img src="../OnlineStoreFullStack/assets/products/heroBanners/designYourOwnBanner.jpg">
+                    <img src="./assets/products/heroBanners/designYourOwnBanner.jpg" alt='oak shelf, oak wall mount, oak display box and white shelf on white background'>
                     <div id='getCreativeInnerContainer'>                      
                         <div id='getCreativeCopy'>
                             <h2>Get Creative</h2>
@@ -77,29 +69,32 @@
                     </div>
                 </section>
    
-
                 <section class='ranges officeRanges' >
                     <div class='rangeTitle'>
                         <h1>Inspiration Collections for Home</h1>
                         <p>We have put together these collections as an inspiration for what you can do and how you can arrange them. Perfect for any room.</p>
                     </div>
+
                     <div class='rangeContainer'>
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9151.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9148.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9151.jpg' alt='three tier wall mounted adjustable shelving, 6 oak shelves and 1 oak display box'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9148.jpg' alt='three tier wall mounted adjustable shelving, 6 oak shelves and 1 oak display box. isometric view with oak coffee table'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Living Room - Three Tier.</h4>
                                 <h4>£450</h4>
                                 <button value='3' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
                         </div>
+
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9184.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9190.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9184.jpg' alt='three tier wall mounted adjustable shelving on white background, 3 oak shelves and 3 oak cupboards'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9190.jpg'  alt='three tier wall mounted adjustable shelving on white background, 3 oak shelves and 3 oak cupboards isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Dining Room - Three Tier.</h4>
                                 <h4>£610</h4>
@@ -109,9 +104,10 @@
                         
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9196.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9201.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9196.jpg'  alt='Two tier wall mounted adjustable shelving on white background, 4 oak shelves and 2 oak cupboards'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9201.jpg' alt='Two tier wall mounted adjustable shelving on white background, 4 oak shelves and 2 oak cupboards isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Dining Room - Two Tier.</h4>
                                 <h4>£530</h4>
@@ -120,38 +116,42 @@
                         </div>                        
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9153.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9179.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9153.jpg' alt='Two tier wall mounted adjustable shelving on white background, 8 oak shelves'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9179.jpg' alt='Two tier wall mounted adjustable shelving on white background, 8 oak shelves, isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Display Shelves - Two Tier.</h4>
                                 <h4>£425</h4>
                                 <button value='6' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
-                        </div>      
+                        </div>   
+
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9211.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9215.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9211.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves and 3 oak cupboards'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9215.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves and 3 oak cupboards, isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Dining room - Three Tier Full Height.</h4>
                                 <h4>£650</h4>
                                 <button value='7' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
                         </div>
+
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9221.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9229.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9221.jpg' alt='Three tier wall mounted adjustable shelving on red background, 5 oak shelves and 3 oak cupboards'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9229.jpg' alt='Three tier wall mounted adjustable shelving on red background, 5 oak shelves and 3 oak cupboards, isometric'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Display Shelves - Three Tier.</h4>
                                 <h4>£740</h4>
                                 <button value='8' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
-                        </div>
-                        
+                        </div>                      
                     </div>
                 </section>
 
@@ -160,23 +160,27 @@
                         <h1>Inspiration Collections for Office</h1>
                         <p>We have put together these collections as an inspiration for what you can do and how you can arrange them. Perfect for the home office.</p>
                     </div>
+
                     <div class='rangeContainer officeRanges'>
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9304.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9309.jpg'>
+                                <img class='imageOver' src='./assets/products/productImages/DSC_9304.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9309.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks, isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Office, Two Workstation - Three Tier.</h4>
                                 <h4>£500</h4>
                                 <button value='9' onclick='sendSetId(this.value)'>View Product</button>
                             </div>
                         </div>
+
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9272.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9275.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9272.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9275.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk, isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Office Workstation - Three Tier.</h4>
                                 <h4>£600</h4>
@@ -186,9 +190,10 @@
                         
                         <div class='collections'>
                             <div class='productImage productImageOverlay'>        
-                                <img class='imageOver ' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9318.jpg'>
-                                <img  class='imageOver imageOverlay' src='../OnlineStoreFullStack/assets/products/productImages/DSC_9334.jpg'>
+                                <img class='imageOver ' src='./assets/products/productImages/DSC_9318.jpg' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk'>
+                                <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9334.jpg ' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk, isometric view'>
                             </div>
+
                             <div class='productInfo'>
                                 <h4>The Forma Office, Single Workstation - Two Tier.</h4>
                                 <h4>£340</h4>
@@ -197,28 +202,67 @@
                         </div>                        
                     </div>
                 </section>
-                
-                
+                               
                 <section id='socialContainer'>
-
                     <div class='rangeTitle'>
                         <h1>Stay Connected</h1>
                         <p>Join us on our social platforms, or subscribe to our news letter to stay up to date with the latest news at Wheatley Studios</p>
                     </div>
     
-                    <div  class='rangeContainer'>
-    
-                        
-                    </div>
-                    
+                    <div class='rangeContainer socialRange'>
+                        <form class='subscribe' method='GET' action='subscribed.html'>
+                            <h2 class='socialHeader'>Join our newsletter</h2>
+
+                            <label for='email'>Email address</label>
+                            <input type='email' name='email' placeholder='enter your email and hit subscribe' required>
+
+                            <button>Subscribe</button>
+                        </form>
+
+                        <div class='wheatleySocial'>
+                            <h2 class='socialHeader'>Follow us on social</h2>
+                            <div class='socialPlatform'>
+                                <h2>Instagram</h2>
+                                <a href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialContImg' src='assets/logos/instagram.png' alt='instagram icon'></a>
+                            </div>
+
+                            <div class='breakLine'></div>
+
+                            <div class='socialPlatform'>
+                                <h2>Facebook</h2>
+                                <a href='https://www.facebook.com/' target='_blank'><img class='socialContImg' src='assets/logos/facebook.png' alt='facebook icon'></a>
+                            </div>
+
+                            <div class='breakLine'></div>
+
+                            <div class='socialPlatform'> 
+                                <h2>twitter</h2>
+                                <a href='https://www.twitter.com' target='_blank'><img class='socialContImg'  src='assets/logos/twitter.png' alt='twitter icon'></a>
+                            </div>
+
+                            <div class='breakLine'></div>
+
+                            <div class='socialPlatform'>
+                                <h2>Pinterest</h2>
+                                <a href='https://www.pinterest.com/' target='_blank'><img class='socialContImg' src='assets/logos/pinterest.png' alt='pinterest icon'></a>
+                            </div>
+                            
+                            <div class='breakLine'></div>
+
+                            <div class='socialPlatform'>
+                                <h2>LinkedIn</h2>
+                                <a href='https://www.linkedin.com' target='_blank'><img class='socialContImg' src='assets/logos/linkedin.png' alt='linkedin icon'></a>
+                            </div>
+                        </div>                      
+                    </div>                   
                 </section>
             </section>
         </main>
         
-        <footer id='footerContainer'>
+        <footer class='footerContainer'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
-                <div id='timesContainer'>
+                <div class='timesContainer'>
                     <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
                     <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
@@ -227,17 +271,20 @@
                     <p class='openTimes'><span>Saturday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
                 </div>
-            </section>  
+            </section> 
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Location</h3>
-                <p>143</p>
-                <p>Trafalger Street</p>
-                <p>Greenwich</p>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
                 <p>london</p>
-                <p>SE10 7PQ</p>
+                <p>E1W 3HB</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Menu</h3>
                 <p>Home Products</p>
@@ -246,22 +293,23 @@
                 <p>About</p>
                 <p>Meet the team</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Contact</h3>
-                <p><span>Phone:</span> 081 352 3313</p>
-                <p><span>Email:</span> info@wheatleystudios.com</p>
-                <p id='social'><span>Social</p>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
             </section>   
-        </footer>
-        
+        </footer>     
         <script src='script/script.js'></script> 
         <script src='script/api.js'></script> 
     </body>

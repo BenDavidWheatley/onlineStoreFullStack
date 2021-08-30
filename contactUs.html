@@ -1,40 +1,49 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <title>Wheatley Studios</title>
   </head>
-  <body>
+
+  <body onload='numberInCart()'>
     <header >
         <div class='headerColor'>
-            <a href='index.html'><section id='headerLogo'>
-                <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-            </section></a>
+            <section id='headerLogo'>
+                <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+            </section>
+
             <section id='headerMenu'>
                 <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
             </section>
         </div>
+
         <div class='dropdownContainer'>
             <div class='dropdown'>
-                <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                <a href='login.html'><p class='menuOne'>Login</p></a>          
-                <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-                <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-                <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-                <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-                <a href='about.html'><p class='menuSix'>About us</p></a> 
-                <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+                <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                <a href='about.html'><p class='menuFour'>About us</p></a> 
+                <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                <a href='login.html'><p class='menuSix'>Login</p></a>          
+                <div class='menuSeven' id='cartAndQuant'>   
+                    <a href='cart.html'><p>Cart </p></a>    
+                    <p id='cartQuant'></p>
+                </div>         
             </div>
-            <div class='dropdownTwo'>
-             
-            </div>
+
+            <div class='dropdownTwo' onclick='openMenu()'></div>
         </div>  
     </header>
 
+    <main>  
+        <section class='scrollContainer'> 
+            <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
+        </section>
 
-    <main>
         <section class='contactBanner'>
             <div class='contactBannerText'>
                 <h1><span>Talk to us,<br> </span>get in touch</h1>
@@ -44,39 +53,116 @@
             </div>
 
             <div class='contactImage'>
-                <img  class='contactImage' src='../OnlineStoreFullStack/assets/products/heroBanners/twoTierWhite.jpg'>         
+                <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='two tier modular shelving system on white background'>         
             </div>            
         </section>
-
+        
         <section>
-
-            <form method='post'>
+            <form id='contactForm' method='post' action='thankYou.html'>
                 <label for='name'>Name</label>
-                <input type="text" name='name'>
+                <input type="text" name='name' pattern="[a-zA-Z0-9\s]+" required>
 
                 <label for='email'>Email</label>
-                <input type='email' name='email'>
+                <input type='email' name='email' required>
 
                 <label for='contactNumber'>Contact Number</label>
-                <input type='number' name='contactNumber'>
+                <input type='tel' name='contactNumber' pattern='[0-9]+' required>
 
                 <label for='enquiry'>Enquiry</label>
-                <textarea name='enquiry' placeholder="How can we help"></textarea>
+                <textarea name='enquiry' placeholder="How can we help" pattern='[a-zA-Z0-9\s]+' required></textarea>
 
                 <button type="submit">Submit</button>
             </form>
         </section>
 
-        <section>
+        <h1 id='locationsHeader'>Come visit one of our locations</h1>
+        <section id='locations'>        
+            <div class='locationContainer'>
+                <div class='imageContainerContact'>
+                    <img class='locationImage' src='assets/locations/stellenbosch.jpeg' alt='Industrial area in Stellenbosch with mountains in the background'>
+                </div>
 
-        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=cable street studios"></iframe>
+                <div class='locationText'>
+                    <h2>Cape Town Office</h2>
+                    <h3>stellenbosch</h3>
+                    <p>Kayamandi, Stellenbosch, 7615, South Africa</p>
+                </div>
+                <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Linton Rd stellenbosch"></iframe>
+            </div>
 
-        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Linton Rd stellenbosch"></iframe>
+            <div class='locationContainer'>
+                <div class='imageContainerContact'>
+                    <img class='locationImage' src='assets/locations/cableStreet.jpeg' alt='brown office block on Cable street'>
+                </div>
 
-        <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Industry City"></iframe>
-    
+                <div class='locationText'>
+                    <h2>UK Office</h2>
+                    <h3>London</h3>
+                    <p>566 Cable St, London E1W 3HB</p>
+                </div>
+                <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=cable street studios"></iframe>
+            </div>
+
+            <div class='locationContainer'>
+                <div class='imageContainerContact'>
+                    <img class='locationImage' src='assets/locations/newYork.jpeg' alt='brown office blocks in New York'>
+                </div>
+
+                <div class='locationText'>
+                    <h2>America Office</h2>
+                    <h3>New York</h3>
+                    <p>274 36th St, Brooklyn, NY 11232, United States</p>
+                </div>
+                <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyABXA-J_rnNw7Iv4YOFs-9ePjVQd1ORcA8&q=Industry City"></iframe>
+            </div>   
         </section>
 
+        <footer class='footerContainer nonHomePageFooter'>
+            <section class='footerInfo'>
+                <h3>Opening Hours</h3>
+                <div class='timesContainer'>
+                    <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
+                    <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
+                    <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
+                    <p class='openTimes'><span>Thursday:</span></p><p class='times'> 9am - 9pm </p>
+                    <p class='openTimes'><span>Friday:</span></p><p class='times'> 9am - 6pm</p>
+                    <p class='openTimes'><span>Saturday:</span></p><p class='times'>9am - 6pm</p>
+                    <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
+                </div>
+            </section>  
+            <div class='verticalBreak'></div>
+            <section class='footerInfo'>
+                <h3>Location</h3>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
+                <p>london</p>
+                <p>E1W 3HB</p>
+            </section>
+            <div class='verticalBreak'></div>
+            <section class='footerInfo'>
+                <h3>Menu</h3>
+                <p>Home Products</p>
+                <p>Office</p>
+                <p>Build Your Own</p>
+                <p>About</p>
+                <p>Meet the team</p>
+            </section>
+            <div class='verticalBreak'></div>
+            <section class='footerInfo'>
+                <h3>Contact</h3>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
+                <div>
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
+                </div>
+            </section>   
+        </footer>
+        
     </main>
     <script src='script/api.js'></script>
     <script src='script/script.js'></script>

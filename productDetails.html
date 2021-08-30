@@ -1,144 +1,203 @@
 <!doctype html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
-    <body onload=loadDoc()>
+
+    <body onload='loadDoc(), changeProductRecommendation(), numberInCart()'>
         <header >
             <div class='headerColor'>
-                <a href='index.html'><section id='headerLogo'>
-                    <img id='logoBlack' src='../OnlineStoreFullStack/assets/logos/logoBlack.png'>
-                    <img id='logoWhite' src='../OnlineStoreFullStack/assets/logos/logoWhite.png'>
-                </section></a>
+                <section id='headerLogo'>
+                    <a class='homePageAnchor' href='index.html'><img id='logoBlack' src='./assets/logos/logoBlack.png' alt='Wheatley Studios logo black'></a>
+                    <a class='homePageAnchor'  href='index.html'><img id='logoWhite' src='./assets/logos/logoWhite.png' alt='wheatley studios logo white'></a>
+                </section>
+
                 <section id='headerMenu'>
                     <h2 class='menuButton' onclick='openMenu()'>Menu</h2>
                 </section>
             </div>
+
             <div class='dropdownContainer'>
                 <div class='dropdown'>
-                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()'>
-                    <a href='login.html'><p class='menuOne'>Login</p></a>          
-                    <a href='cart.html'><p class='menuTwo'>Cart</p></a>                 
-                    <a href='homeSelection.html'><p class='menuThree'>Home Collections</p></a>          
-                    <a href='officeSelection.html'><p class='menuFour'>Office Collections</p></a>  
-                    <a href='buildYourOwn.html'><p class='menuFive'>Design Your Own</p></a>     
-                    <a href='about.html'><p class='menuSix'>About us</p></a> 
-                    <a href='contactUs.html'><p class='menuSeven'>Get in Touch</p></a> 
+                    <img class='spinOut closeMenu' src='assets/logos/cross.png' onclick='openMenu()' alt='white close cross on black background'>                             
+                    <a href='homeSelection.html'><p class='menuOne'>Home Collections</p></a>          
+                    <a href='officeSelection.html'><p class='menuTwo'>Office Collections</p></a>  
+                    <a href='buildYourOwn.html'><p class='menuThree'>Design Your Own</p></a>     
+                    <a href='about.html'><p class='menuFour'>About us</p></a> 
+                    <a href='contactUs.html'><p class='menuFive'>Get in Touch</p></a> 
+                    <a href='login.html'><p class='menuSix'>Login</p></a>          
+                    <div class='menuSeven' id='cartAndQuant'>   
+                        <a href='cart.html'><p>Cart </p></a>    
+                        <p id='cartQuant'></p>
+                    </div>         
                 </div>
-                <div class='dropdownTwo'>
-                 
-                </div>
+
+                <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
 
-
         <main class='main'>
             <div class='mainProductContainer'>
-                <section class='imageContainer'> 
-                    <div >
-                        <img class='mainCloseupImage' src=''>
+                <section class='imageContainer'>               
+                    <div class="mainCloseupImageContainer">
+                        <img class='productImageOne' id='mainCloseupImage'  src=''>
                     </div>
+                    
                     <div class='smallImagesContainer'>
                         <div class='smallDetailImage'>
-                            <a href="#slide-1"><img id='detailImageOne' src=''></a>
+                            <img id='detailImageOne' onclick='switchProductImage(this.id)' src=''>
                         </div>
+
                         <div class='smallDetailImage'>    
-                            <img id='detailImageTwo' src=''>                   
+                            <img id='detailImageTwo' onclick='switchProductImage(this.id)' src=''>                   
                         </div>
+
                         <div class='smallDetailImage'>
-                            <img id='detailImageThree' src=''>
+                            <img id='detailImageThree' onclick='switchProductImage(this.id)' src=''>
                         </div>
+
                         <div class='smallDetailImage'>
-                            <img id='detailImageFour' src=''>                      
+                            <img id='detailImageFour' onclick='switchProductImage(this.id)' src=''>                      
                         </div>
+
                         <div class='smallDetailImage'>
-                            <img id='detailImageFive' src=''>
+                            <img id='detailImageFive' onclick='switchProductImage(this.id)' src=''>
                         </div>             
                     </div>
                 </section>
 
                 <section class='specContainer'>
-
                     <div class='productInformation'>
-                        <h1 id='productTitle'></h1>
-                        <p>Cost £<span id='productCost'></span></p>
-
+                        <h1  class='productHeaderOne' id='productTitle'></h1>
+                        <p class='cost'>Cost £<span id='productCost'></span></p>
                         <p id='productDescription'></p>
 
-                        <form method='Post'>
-
-                            <select>
+                        <div class='addToCartForm' method='Post'>
+                            <label for='finish'>Choose a finish</label>
+                            <select id='finish' name='finish' required>
                                 <option>Oak</option>
                                 <option>Ash</option>
                             </select>
                             
                             <label for='quantity'>Quantity</label>
-                            <input name='quantity' type='text'>
+                            <input id='prodQuant' name='quantity' type='text'  placeholder='Add a quantity before submitting'>
+                            <p id='pleaseAddQuantity'></p>
+                            <button class='addToCart' id='addToCart' onclick='addProductToCart(this.id)'>Add to Cart</button>
+                            
+                        </div>
 
-                            <button>Add to Cart</button>
-
-                        </form>
-
-                        <h2>Dimensions</h2>
+                        <h2 class='productHeader'>Dimensions</h2>
                         <p>Width: <span id='productWidth'></span> mm</p>
                         <p>Depth: <span id='productDepth'></span> mm</p>
                         <p>Height: <span id='productHeight'></span> mm</p>
-
-                        <h2>Availability</h2>
-                        <p>Current stock: <span id='productStockLevels'></span> unit/s in stock</p>
+                        <h2 class='productHeader'>Availability</h2>
+                        <p class='margin'>Current stock: <span id='productStockLevels'></span> unit/s in stock</p>
 
                     </div>
-                    <div class=optSpecCareContainer>
-                        <p>The Wheatley Forma shelving system was created to allow you to design your living space your way. The possibilities are endless! From a small work area with a desk and a couple of shelves to an entire wall for your library. The system works on a cantilever with location slots on the wall mounts for the steel pins in each unit to slot into. Each unit can be adjusted up or down in increments of 100mm. We recommend a maximum weight of 15kg, spread evenly across each shelf.</p>
-                        <h3>Unit options</h3>
-                        <ul>
-                            <li>Standard shelf: W840mm x D300mm x H16mm.</li>
-                            <li>Desk: W840 x D500mm x H32mm</li>
-                            <li>Display box: W840mm x D300mm x H390mm</li>
-                            <li>Display box: W840mm x D300mm x H390mm</li>
-                        </ul>
-
-                        <h3>Colours and Materials</h3>
-
-                        <p>Units and wall mounts are available in a selection of colors and materials, including-</p>
-                        <p><span class='bold'>Units:</span></p>
-                        <ul>
-                            <li>Oak veneer</li>
-                            <li>Ash veneer</li>
-                            <li>Sprayed white</li>
-                            <li>Sprayed grey</li>
-                            <li>Sprayed black</li>
-                        </ul>
-                        <p><span class='bold'></span>Wall Mounts:</span></p>
-                        <ul>
-                            <li>Solid Oak</li>
-                            <li>Solid Ash</li>
-                        </ul>
-                        <p><span class='bold'>Steel colours include:</span></p>
-                        <ul>
-                            <li>Black</li>
-                            <li>White</li>
-                            <li>Mid Grey</li>
-                        </ul>
-                        <em>* Please contact us for a quote on custom colors or materials</em>
-
-                        <h3>Care Instructions</h3>
-
-                        <p><span class='bold'>Don't overload the shelves -</span> we recommend a maximum weight of 15kg spread evenly across the shelf. Clean wooden units with furniture polish when needed. Sprayed units can be wiped down with a damp cloth. We recommend testing any cleaning products on the off-cut provided. Always clean up any spillages immediately with a damp cloth. </p>
-                    </div>
-
-                
-                </section>
+                </section>               
             </div>
+
+            <div class='optSpecCareCont'>
+                <div class='moreInformation'>
+                    <h4>Options, Spec and Care</h4> 
+                    <p class='viewMoreInfo' onclick='openSpec()'>View more </p>                 
+                </div>
+            </div>
+
+            <article class='hiddenInformation'>
+                <div id='optSpecCareContainer'>
+                    <p>The Wheatley Forma shelving system was created to allow you to design your living space your way. The possibilities are endless! From a small work area with a desk and a couple of shelves to an entire wall for your library. The system works on a cantilever with location slots on the wall mounts for the steel pins in each unit to slot into. Each unit can be adjusted up or down in increments of 100mm. We recommend a maximum weight of 15kg, spread evenly across each shelf.</p>
+                    <h2 class='productHeader'>Unit options</h2>
+                    <ul>
+                        <li>Standard shelf: W840mm x D300mm x H16mm.</li>
+                        <li>Desk: W840 x D500mm x H32mm</li>
+                        <li>Display box: W840mm x D300mm x H390mm</li>
+                        <li>Display box: W840mm x D300mm x H390mm</li>
+                    </ul>
+
+                    <h2 class='productHeader'>Colours and Materials</h2>
+
+                    <p>Units and wall mounts are available in a selection of colors and materials, including-</p>
+                    <p class='productHeader productHeaderSmall'><span>Units:</span></p>
+                    <ul>
+                        <li>Oak veneer</li>
+                        <li>Ash veneer</li>
+                        <li>Sprayed white</li>
+                        <li>Sprayed grey</li>
+                        <li>Sprayed black</li>
+                    </ul>
+                    <p class='productHeader productHeaderSmall'><span>Wall Mounts:</span></p>
+                    <ul>
+                        <li>Solid Oak</li>
+                        <li>Solid Ash</li>
+                    </ul>
+                    <p class='productHeader productHeaderSmall'><span>Steel Colours Include:</span></p>
+                    <ul>
+                        <li>Black</li>
+                        <li>White</li>
+                        <li class='margin'>Mid Grey</li>
+                    </ul>
+                    <em>* Please contact us for a quote on custom colors or materials</em>
+
+                    <h3 class='productHeader productHeaderSmall'>Care Instructions</h3>
+
+                    <p><span>Don't overload the shelves -</span> we recommend a maximum weight of 15kg spread evenly across the shelf. Clean wooden units with furniture polish when needed. Sprayed units can be wiped down with a damp cloth. We recommend testing any cleaning products on the off-cut provided. Always clean up any spillages immediately with a damp cloth. </p>
+                </div>                    
+            </article>  
+
+            <section id='interestedIn'>
+                <h1>You may also be interested in </h1>
+                <div class='rangeContainer interestedInRanges'>
+                    <div class='collections'>
+                        <div class='productImage productImageOverlay'>        
+                            <img id='recommendOneImageOne' class='imageOver' src='./assets/products/productImages/DSC_9349.jpg'>
+                            <img id='recommendOneImageTwo' class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9348.jpg'>
+                        </div>
+
+                        <div class='productInfo'>
+                            <h4 id='recommendOneTitle'>The Forma adjustable shelf, wood options.</h4>
+                            <h4 id='recommendOneCost'>£45</h4>
+                            <button id='recommendOneButton'  value='4' onclick='sendId(this.value)'>View Product</button>
+                        </div>
+                    </div>
+
+                    <div class='collections'>
+                        <div class='productImage productImageOverlay'>        
+                            <img id='recommendTwoImageOne' class='imageOver' src='./assets/products/productImages/DSC_9355.jpg' >
+                            <img id='recommendTwoImageTwo' class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9358.jpg'>
+                        </div>
+
+                        <div class='productInfo'>
+                            <h4 id='recommendTwoTitle'>The Forma adjustable desk unit.</h4>
+                            <h4 id='recommendTwoCost'>£88</h4>
+                            <button id='recommendTwoButton'  value='11' onclick='sendId(this.value)'>View Product</button>
+                        </div>
+                    </div>
+
+                    <div class='collections'>
+                        <div class='productImage productImageOverlay'>        
+                            <img id='recommendThreeImageOne' class='imageOver' src='./assets/products/productImages/DSC_9374.jpg' >
+                            <img id='recommendThreeImageTwo' class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9376.jpg'>
+                        </div>
+
+                        <div class='productInfo'>
+                            <h4 id='recommendThreeTitle'>The Forma adjustable cupboard unit.</h4>
+                            <h4 id='recommendThreeCost'>£140</h4>
+                            <button id='recommendThreeButton'  value='19' onclick='sendId(this.value)'>View Product</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
-        <footer id='footerContainer'>
+        <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
-                <div id='timesContainer'>
+                <div class='timesContainer'>
                     <p class='openTimes'><span>Monday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Tuesday:</span></p><p class='times'> 9am - 6pm</p>
                     <p class='openTimes'><span>Wednesday:</span></p><p class='times'> 9am - 6pm </p>
@@ -147,17 +206,20 @@
                     <p class='openTimes'><span>Saturday:</span></p><p class='times'>9am - 6pm</p>
                     <p class='openTimes'><span>Sunday:</span></p><p class='times'> 9am - 1pm</p>
                 </div>
-            </section>  
+            </section> 
+             
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Location</h3>
-                <p>143</p>
-                <p>Trafalger Street</p>
-                <p>Greenwich</p>
+                <p>UK Office</p>
+                <p>566 Cable St</p>
                 <p>london</p>
-                <p>SE10 7PQ</p>
+                <p>E1W 3HB</p>
             </section>
+
             <div class='verticalBreak'></div>
+
             <section class='footerInfo'>
                 <h3>Menu</h3>
                 <p>Home Products</p>
@@ -166,23 +228,25 @@
                 <p>About</p>
                 <p>Meet the team</p>
             </section>
+
             <div class='verticalBreak'></div>
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
-                <p><span>Phone:</span> 081 352 3313</p>
-                <p><span>Email:</span> info@wheatleystudios.com</p>
-                <p id='social'><span>Social</p>
+                <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
+                <p><span>Email:</span><a href="mailto:info@wheatleystudios.com">info@wheatleystudios.com</a></p>
+                <p><span>Social</p>
                 <div>
-                    <a href='https://www.instagram.com/'><img class='socialImages' id='instagram' src='assets/logos/instagram.png' alt='instagram icon'></a>
-                    <a href='https://www.linkedin.com'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.png' alt='pinteresticon'></a>
-                    <a href='https://www.facebook.com/'><img class='socialImages'  id='facebook' src='assets/logos/facebook.png' alt='facebook icon'></a>
-                    <a href='https://www.pinterest.com/'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.png' alt='linkedin icon'></a>
-                    <a href='https://www.twitter.com'><img class='socialImages'  id='twitter' src='assets/logos/twitter.png' alt='twitter icon'></a>
-
+                    <a id='instaAnchor' href='https://www.instagram.com/wheatleystudios/' target='_blank'><img class='socialImages' id='instagram' src='assets/logos/instagram.jpg' alt='instagram icon'></a>
+                    <a href='https://www.linkedin.com' target='_blank'><img class='socialImages'  id='linkedin' src='assets/logos/linkedin.jpg' alt='pinteresticon'></a>
+                    <a href='https://www.facebook.com/' target='_blank'><img class='socialImages'  id='facebook' src='assets/logos/facebook.jpg' alt='facebook icon'></a>
+                    <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
+                    <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
             </section>   
-        </footer> 
-       
+        </footer>
+        <script src='script/script.js'></script>
         <script src='script/api.js'></script>
+        
     </body>
 </html> 

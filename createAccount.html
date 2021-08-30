@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body onload='numberInCart()'>
+    <body class='blackBackground' onload='numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -33,67 +33,40 @@
                     <div class='menuSeven' id='cartAndQuant'>   
                         <a href='cart.html'><p>Cart </p></a>    
                         <p id='cartQuant'></p>
-                    </div>          
+                    </div>         
                 </div>
-
                 <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
 
-        <main>
-            <section class='scrollContainer'> 
-                <img class='scrollBack scrollImage' onclick='scrollToTop()' src='assets/logos/backToTop.jpg' alt='pink arrow on black background used to go to the top of the page'>
-            </section>
+        <main class='main'>
+            <section class='contactBanner'>
+                <div class='loginBannerText'>
+                    <form class='accountLogin'   method='POST' action='newUser.html' onsubmit="newUser()">
+                        <h2>Create an account</h2>
+                        <label  for='firstName'>First Name</label>
+                        <input id='newUserName' type='text' name='firstName' pattern='[a-zA-Z0-9\s]+' required>
 
-            <section class='ranges'>
-                <div class='rangeTitle office'>
-                    <h1>Office</h1>
-                    <p>We have created these inspiration collections below. If you can't find something that suits your needs you can always design your own to create Something unique to you.</p>
+                        <label for='surname'>Surname</label>
+                        <input id='newUserSurname' type='text' name='surname' pattern='[a-zA-Z0-9\s]+' required>
+
+                        <label for='email' >Email</label>
+                        <input id='newUserEmail' type='email' name='email' onchange='checkUser()' required>
+                        <p id='serverResponse'></p>
+
+                        <label for='password'>Password</label>
+                        <input id='newUserPassword' type='password' name='password' minlength="6" placeholder='minimum 6 characters' pattern='[a-zA-Z0-9\s]+' required>
+                        
+                        <button id='newUserButton' type='submit' name='newAccount'>Create Account</button>
+                    </form>               
                 </div>
-                
-                <div class='rangeContainer officeRanges'>
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver' src='./assets/products/productImages/DSC_9304.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9309.jpg' alt='Three tier wall mounted adjustable shelving on green background, 5 white shelves and 2 white desks, isometric view'>
-                        </div>
 
-                        <div class='productInfo'>
-                            <h4>The Forma Office, Two Workstation - Three Tier.</h4>
-                            <h4>£500</h4>
-                            <button value='9' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>
-
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='./assets/products/productImages/DSC_9272.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9275.jpg' alt='Three tier wall mounted adjustable shelving on red background, 3 oak shelves, 2 oak cupboards and 1 white desk, isometric view'>
-                        </div>
-
-                        <div class='productInfo'>
-                            <h4>The Forma Office Workstation - Three Tier.</h4>
-                            <h4>£600</h4>
-                            <button value='10' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>
-                    
-                    <div class='collections'>
-                        <div class='productImage productImageOverlay'>        
-                            <img class='imageOver ' src='./assets/products/productImages/DSC_9318.jpg' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk'>
-                            <img  class='imageOver imageOverlay' src='./assets/products/productImages/DSC_9334.jpg ' alt='Two tier wall mounted adjustable shelving on green background, 4 white shelves and 1 white desk, isometric view'>
-                        </div>
-
-                        <div class='productInfo'>
-                            <h4>The Forma Office, Single Workstation - Two Tier.</h4>
-                            <h4>£340</h4>
-                            <button value='11' onclick='sendSetId(this.value)'>View Product</button>
-                        </div>
-                    </div>                        
-                </div>           
+                <div class='contactImage'>
+                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg'>         
+                </div>            
             </section>
         </main>
-        
+
         <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
@@ -130,7 +103,7 @@
             </section>
 
             <div class='verticalBreak'></div>
-
+            
             <section class='footerInfo'>
                 <h3>Contact</h3>
                 <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
@@ -143,9 +116,10 @@
                     <a href='https://www.pinterest.com/' target='_blank'><img class='socialImages'  id='pinterest' src='assets/logos/pinterest.jpg' alt='linkedin icon'></a>
                     <a href='https://www.twitter.com' target='_blank'><img class='socialImages'  id='twitter' src='assets/logos/twitter.jpg' alt='twitter icon'></a>
                 </div>
-            </section>         
+            </section>   
         </footer>
-        <script src='script/script.js'></script> 
         <script src='script/api.js'></script> 
+        <script src='script/script.js'></script> 
+        
     </body>
 </html> 
