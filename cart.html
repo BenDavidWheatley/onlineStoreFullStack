@@ -47,7 +47,7 @@
                 <div id='cartContainer' class='cartContainer'>
                     <img class='cartImage' src=''>
                     <div class='cartInfoContainer'>
-                        <h2 class='cartTitle'></h2>
+                        <p class='cartTitle'></p>
                         <label for='quantity'>Quantity - </label>
                         <input type='number' class='cartQuantity'></input>
                         <p>Chosen Finish - <span class='cartFinish'></span></p>
@@ -65,7 +65,7 @@
                 <div id='cartProdContainer' class='cartProdContainer'>
                     <img class='cartProdImage' src=''>
                     <div class='cartProdInfoContainer'>
-                        <h2 class='cartProdTitle'></h2>
+                        <p class='cartProdTitle'></p>
                         <label for='quantity'>Quantity - </label>
                         <input name='quantity' type='number' class='cartProdQuantity'></input>
                         <p>Chosen Finish - <span class='cartProdFinish'></span></p>
@@ -80,14 +80,11 @@
             </section>
 
 
-            <p id='grandTotal'></p>
-            <section>
-                <p>Grand Total = <span id='emptyCart'></span></p>
+            <p id='emptyCart'></p>
+            <section id='checkOutContainer'>
+                <p>Grand Total = <span id='grandTotal'></span></p>
                 <button id='checkoutButton' onclick="checkout()">Checkout</button>
-
             </section>
-            
-
         </main>
 
         <footer class='footerContainer nonHomePageFooter cartFooter'>

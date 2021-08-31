@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body onload='cart(), productCart(), grandTotal(), numberInCart(), finalCheckout()'>
+    <body onload='cart(), productCart(), grandTotal(), numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -67,54 +67,53 @@
                 </div>
             </section>
   
-            <section>
+            <section >
                 <p id='emptyCart'></p>
-                <p>Grand Total = <span id='grandTotal'></span></p>
+                <p id='checkoutPrice'>Grand Total = £<span id='grandTotal'></span></p>
                 <button id='checkoutButton' onclick="checkout()">Checkout</button>
             </section>
             
             <section>
-                <form method='POST' action='orderPlaced.html'>
+                <div id='delBillingForm' > 
                     <h2>Delivery Address</h2>
 
                     <label>Line 1</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name' required >
+                    <input id='deliveryLine1' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name' required >
 
                     <label>Line 2</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road' required >
+                    <input  id='deliveryLine2' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road' required >
 
                     <label>Line 3</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town' required>
+                    <input id='deliveryLine3' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town' required>
 
                     <label>Line 4</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province' required>
+                    <input id='deliveryLine4' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province' required>
 
                     <label>Line 5</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code' required>
-
+                    <input id='deliveryLine5' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code' required>
 
                     
                     <h2>Billing Address</h2>
 
                     <label from='same'>Billing address the same as delivery</label>
-                    <input type='checkbox'>
+                    <input id='sameAsDel' type='checkbox'>
                     
                     <label>Line 1</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name'>
+                    <input id='billingLine1'  type='text' pattern="[a-zA-Z0-9' ']+" placeholder='house number or name'>
 
                     <label>Line 2</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road'>
+                    <input id='billingLine2'  type='text' pattern="[a-zA-Z0-9' ']+" placeholder='street or road'>
 
                     <label>Line 3</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town'>
+                    <input id='billingLine3'  type='text' pattern="[a-zA-Z0-9' ']+" placeholder='town'>
 
                     <label>Line 4</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province'>
+                    <input id='billingLine4' type='text' pattern="[a-zA-Z0-9' ']+" placeholder='City, County or Province'>
 
                     <label>Line 5</label>
-                    <input type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code'>
+                    <input id='billingLine5'  type='text' pattern="[a-zA-Z0-9' ']+" placeholder='Post Code'>
 
-                    <button type='submit'>Place Order</button>
+                    <button type='submit' onClick="placeOrder()">Place Order</button>
                 </form>
             </section>
         </main>

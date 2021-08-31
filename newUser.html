@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body class='blackBackground' onload='numberInCart()'>
+    <body onload='numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -40,10 +40,10 @@
             </div>  
         </header>
     
-        <main>  
+        <main class='full'>  
             <section class='contactBanner'>
                 <div class='contactBannerText'>
-                    <h1>New Account Created</h1>
+                    <h1 id='newAccountHeader'>New Account Created</h1>
                     <a id='backToMain' href='login.html'><button id='back' >Login</button></a>
                 </div>
                 
@@ -51,6 +51,8 @@
                     <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='two tier modular shelving system on white background'>         
                 </div>            
             </section>
+
+            <section class='margin'></section>
         </main>
 
         <footer class='footerContainer nonHomePageFooter'>

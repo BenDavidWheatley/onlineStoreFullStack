@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body class='blackBackground' onload='numberInCart()'>
+    <body onload='numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -39,31 +39,36 @@
             </div>  
         </header>
 
-        <main class='main'>
+        <main class='main full'>
             <section class='contactBanner'>
-                <div class='loginBannerText'>
-                    <form class='accountLogin'   method='POST' action='newUser.html' onsubmit="newUser()">
-                        <h2>Create an account</h2>
-                        <label  for='firstName'>First Name</label>
-                        <input id='newUserName' type='text' name='firstName' pattern='[a-zA-Z0-9\s]+' required>
-
-                        <label for='surname'>Surname</label>
-                        <input id='newUserSurname' type='text' name='surname' pattern='[a-zA-Z0-9\s]+' required>
-
-                        <label for='email' >Email</label>
-                        <input id='newUserEmail' type='email' name='email' onchange='checkUser()' required>
-                        <p id='serverResponse'></p>
-
-                        <label for='password'>Password</label>
-                        <input id='newUserPassword' type='password' name='password' minlength="6" placeholder='minimum 6 characters' pattern='[a-zA-Z0-9\s]+' required>
-                        
-                        <button id='newUserButton' type='submit' name='newAccount'>Create Account</button>
-                    </form>               
+                <div class='contactBannerText'>
+                    <h1><span>Sign up,<br> </span>Create an account</h1>
+                    <p>Sign up to purchase and get access to exclusive offers</p>
                 </div>
 
                 <div class='contactImage'>
-                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg'>         
-                </div>            
+                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='two tier modular shelving system on white background'>         
+                </div>   
+            </section>
+            
+            <section>
+                <form  id='signUpForm' class='accountLogin'   method='POST' action='newUser.html' onsubmit="newUser()">
+                    <h2>Create an account</h2>
+                    <label  for='firstName'>First Name</label>
+                    <input id='newUserName' type='text' name='firstName' pattern='[a-zA-Z0-9\s]+' required>
+
+                    <label for='surname'>Surname</label>
+                    <input id='newUserSurname' type='text' name='surname' pattern='[a-zA-Z0-9\s]+' required>
+
+                    <label for='email' >Email</label>
+                    <input id='newUserEmail' type='email' name='email' onchange='checkUser()' required>
+                    <p id='serverResponse'></p>
+
+                    <label for='password'>Password</label>
+                    <input id='newUserPassword' type='password' name='password' minlength="6" placeholder='minimum 6 characters' pattern='[a-zA-Z0-9\s]+' required>
+                    
+                    <button id='newUserButton' type='submit' name='newAccount'>Create Account</button>
+                </form>    
             </section>
         </main>
 

@@ -19,7 +19,7 @@ function loadDoc() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         let id = urlParams.get('id');
-        let url = "http://localhost:8888/projects/OnlineStoreFullStack/api/products/" + id;
+        let url = "../OnlineStoreFullStack/api/products/" + id;
 
         //Creates a new XMLHttpRequest and outputs the results of the endpoint.
         const xhr = new XMLHttpRequest();     
@@ -69,7 +69,7 @@ function loadSetDoc() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let id = urlParams.get('id');
-    let url = "http://localhost:8888/projects/OnlineStoreFullStack/api/productSets/" + id;
+    let url = "../OnlineStoreFullStack/api/productSets/" + id;
 
     //Creates a new XMLHttpRequest and outputs the results of the endpoint.
 
@@ -120,7 +120,7 @@ function subscriber() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let email = urlParams.get('email');
-    let url = "http://localhost:8888/projects/OnlineStoreFullStack/api/subscribe/" + email;
+    let url = "../OnlineStoreFullStack/api/subscribe/" + email;
 
     //Creates a new XMLHttpRequest and outputs the results of the endpoint.  
     const xhr = new XMLHttpRequest();   
@@ -152,7 +152,7 @@ function subscriber() {
 function checkUser() { 
     // Variables that get the username and concatenates it to the endpoint string
     const email = document.getElementById('newUserEmail').value;
-    const url = "http://localhost:8888/projects/OnlineStoreFullStack/api/checkUser/" + email;
+    const url = "../OnlineStoreFullStack/api/checkUser/" + email;
 
     //Creates a new XMLHttpRequest and outputs the results of the endpoint.  
     const xhr = new XMLHttpRequest();  
@@ -196,7 +196,7 @@ function newUser() {
     const email = document.getElementById('newUserEmail').value;
     const password = document.getElementById('newUserPassword').value;
     const values = 'firstName=' + firstName + '&surname=' + surname +'&email=' + email +'&password=' + password;  
-    const url = "http://localhost:8888/projects/OnlineStoreFullStack/api/newUser" 
+    const url = "../OnlineStoreFullStack/api/newUser" 
 
     const xhr = new XMLHttpRequest(); 
     xhr.open("POST", url);  
@@ -212,7 +212,7 @@ function login() {
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('loginPassword').value;
     const values ='email=' + email + '&password=' + password;  
-    const url = "http://localhost:8888/projects/OnlineStoreFullStack/api/login" 
+    const url = "../OnlineStoreFullStack/api/login" 
 
     const xhr = new XMLHttpRequest(); 
     
@@ -235,9 +235,9 @@ function login() {
                         let url = window.location.href;
                         let lastPart = url.substr(url.lastIndexOf('/') + 1);
                         if (lastPart === 'loginCheckout.html') {
-                            window.location.replace('http://localhost:8888/projects/OnlineStoreFullStack/checkout.html'); 
+                            window.location.replace('../OnlineStoreFullStack/checkout.html'); 
                         }else {
-                            window.location.replace('http://localhost:8888/projects/OnlineStoreFullStack/index.html');  
+                            window.location.replace('../OnlineStoreFullStack/index.html');  
                         } 
                     }
                 }
@@ -257,192 +257,195 @@ let productTotal = 0
 
 function cart () {
     let existingData = localStorage.getItem('wheatleyCart');
-
     // creates the array from the local storage
-    let cartArray = existingData.split(',');
-    // counting the array and determining the amount of products in local storage, there are only 3 bits of information saved for each product
-    // dividing the length by 3 will give us the amount of products. The first value is always Null, math floor will remove this.
-    let quantity = Math.floor(cartArray.length / 3);
-    let id = 1;
-    let amount = 2;
-    let finish = 3;
-    let prodId = 1;
+    if (existingData){
+        let cartArray = existingData.split(',');
+        // counting the array and determining the amount of products in local storage, there are only 3 bits of information saved for each product
+        // dividing the length by 3 will give us the amount of products. The first value is always Null, math floor will remove this.
+        let quantity = Math.floor(cartArray.length / 3);
+        let id = 1;
+        let amount = 2;
+        let finish = 3;
+        let prodId = 1;
 
-    let prodAmount = 2;
-    let prodFinish = 3;
-    let cartListClass = 0;
-        //loop through the array and query the database for the product information
-        for (let x = 0; x < quantity; x++) { 
-            
-        let url = "http://localhost:8888/projects/OnlineStoreFullStack/api/productSets/" + cartArray[id];
-    
-        const xhr = new XMLHttpRequest();       
-        // set to false so as to only go through next part of the loop once a response has happened.
-        xhr.open("GET", url, false);  
-        xhr.onreadystatechange = function () {
-            var DONE = 4;
-            var OK = 200;
-            
-            if (xhr.readyState === DONE) {
-                if (xhr.status === OK) {
-                    // used to check which page we are on
-                    let url = window.location.href;
-                    let lastPart = url.substr(url.lastIndexOf('/') + 1);
+        let prodAmount = 2;
+        let prodFinish = 3;
+        let cartListClass = 0;
+            //loop through the array and query the database for the product information
+            for (let x = 0; x < quantity; x++) { 
+                
+            let url = "../OnlineStoreFullStack/api/productSets/" + cartArray[id];
 
-                    let array = xhr.responseText; 
-                    let data = JSON.parse(array); 
-
-                    let prodCost = data[0]['cost'];
-                    let prodName = data[0]['name'];                 
-                    let prodImage = data[0]['image_one'];
-
-                    // Get all the classes to update
-                    let cartImage = document.getElementsByClassName('cartImage');
-                    let cartProdTitle = document.getElementsByClassName('cartTitle');
-                    let cartQuantity = document.getElementsByClassName('cartQuantity');
-                    let cartCost = document.getElementsByClassName('cartCost');
-                    let totalCost = document.getElementsByClassName('cartTotalCost');
-                    let cartFinish = document.getElementsByClassName('cartFinish');
-                    let updateCart = document.getElementsByClassName('updateSetCart');
-                    let removeFromCart = document.getElementsByClassName('removeFromCart');
-
-                    //update the DOM elements with date from the database and user input. Using the cartClassList to target 
-                    // the index value of the class
-
-                    
-                    cartProdTitle[cartListClass].innerHTML = prodName;                
-                    cartCost[cartListClass].innerHTML = prodCost;
-                    cartCost[cartListClass].value = prodCost;
-                    totalCost[cartListClass].innerHTML = prodCost * cartArray[prodAmount];
-                    cartFinish[cartListClass].innerHTML = cartArray[prodFinish]
-
-                    if (lastPart === 'cart.html') {
-                        cartImage[cartListClass].src = './assets/products/productImages/' + prodImage;
-                        updateCart[cartListClass].id = id;
-                        removeFromCart[cartListClass].id = id;
-                        cartQuantity[cartListClass].value = cartArray[prodAmount];
-                    } else {
-                        document.getElementById('checkoutButton').style.display = 'none';
-                        cartQuantity[cartListClass].innerHTML = cartArray[prodAmount];
-                    }
-                    //update the setTotal before the clone resets the variables.
-                    setTotal = setTotal + (prodCost * cartArray[prodAmount]);
-                    //Create a clone of the container 
-                    let divClone = document.getElementById('cartContainer'),
-                    clone = divClone.cloneNode(true); // true means clone all childNodes and all event handlers
-                    clone.id = 'cartContainer' + cartListClass;
-                    document.getElementById('cloneCart').appendChild(clone);
-
-                    //update the variables used to search through the cart array
-                    prodId = prodId + 3;
-                    prodAmount = prodAmount + 3;
-                    prodFinish = prodFinish + 3;
-                    
-                    return setTotal;                
-                } else {
-                    console.log('Error: ' + xhr.status);
-                }
-            }
-        };       
-        xhr.send();  
+            console.log(url);
         
-        //update the variables used for the searching through the array
-        id = id + 3;
-        amount = amount + 3;
-        finish = finish + 3;
-        cartListClass = cartListClass + 1;     
-    }          
+            const xhr = new XMLHttpRequest();       
+            // set to false so as to only go through next part of the loop once a response has happened.
+            xhr.open("GET", url, false);  
+            xhr.onreadystatechange = function () {
+                var DONE = 4;
+                var OK = 200;
+                
+                if (xhr.readyState === DONE) {
+                    if (xhr.status === OK) {
+                        // used to check which page we are on
+                        let url = window.location.href;
+                        let lastPart = url.substr(url.lastIndexOf('/') + 1);
+
+                        let array = xhr.responseText; 
+                        let data = JSON.parse(array); 
+
+                        let prodCost = data[0]['cost'];
+                        let prodName = data[0]['name'];                 
+                        let prodImage = data[0]['image_one'];
+
+                        // Get all the classes to update
+                        let cartImage = document.getElementsByClassName('cartImage');
+                        let cartProdTitle = document.getElementsByClassName('cartTitle');
+                        let cartQuantity = document.getElementsByClassName('cartQuantity');
+                        let cartCost = document.getElementsByClassName('cartCost');
+                        let totalCost = document.getElementsByClassName('cartTotalCost');
+                        let cartFinish = document.getElementsByClassName('cartFinish');
+                        let updateCart = document.getElementsByClassName('updateSetCart');
+                        let removeFromCart = document.getElementsByClassName('removeFromCart');
+
+                        //update the DOM elements with date from the database and user input. Using the cartClassList to target 
+                        // the index value of the class
+
+                        
+                        cartProdTitle[cartListClass].innerHTML = prodName;                
+                        cartCost[cartListClass].innerHTML = prodCost;
+                        cartCost[cartListClass].value = prodCost;
+                        totalCost[cartListClass].innerHTML = prodCost * cartArray[prodAmount];
+                        cartFinish[cartListClass].innerHTML = cartArray[prodFinish]
+
+                        if (lastPart === 'cart.html') {
+                            cartImage[cartListClass].src = './assets/products/productImages/' + prodImage;
+                            updateCart[cartListClass].id = id;
+                            removeFromCart[cartListClass].id = id;
+                            cartQuantity[cartListClass].value = cartArray[prodAmount];
+                        } else {
+                            document.getElementById('checkoutButton').style.display = 'none';
+                            cartQuantity[cartListClass].innerHTML = cartArray[prodAmount];
+                        }
+                        //update the setTotal before the clone resets the variables.
+                        setTotal = setTotal + (prodCost * cartArray[prodAmount]);
+                        //Create a clone of the container 
+                        let divClone = document.getElementById('cartContainer'),
+                        clone = divClone.cloneNode(true); // true means clone all childNodes and all event handlers
+                        clone.id = 'cartContainer' + cartListClass;
+                        document.getElementById('cloneCart').appendChild(clone);
+
+                        //update the variables used to search through the cart array
+                        prodId = prodId + 3;
+                        prodAmount = prodAmount + 3;
+                        prodFinish = prodFinish + 3;
+                        
+                        return setTotal;                
+                    } else {
+                        console.log('Error: ' + xhr.status);
+                    }
+                }
+            };       
+            xhr.send();  
+            
+            //update the variables used for the searching through the array
+            id = id + 3;
+            amount = amount + 3;
+            finish = finish + 3;
+            cartListClass = cartListClass + 1;     
+        }     
+    }     
 }
 
 function productCart () {
 
     //for comments see cart
-
     let existingData = localStorage.getItem('wheatleyCartProducts');
 
-    let cartArray = existingData.split(',');
-    let quantity = Math.floor(cartArray.length / 3);
-    let id = 1;
-    let amount = 2;
-    let finish = 3;
-    let prodId = 1;
+    if(existingData) {
+        let cartArray = existingData.split(',');
+        let quantity = Math.floor(cartArray.length / 3);
+        let id = 1;
+        let amount = 2;
+        let finish = 3;
+        let prodId = 1;
 
-    let prodAmount = 2;
-    let prodFinish = 3;
-    let cartListClass = 0;
+        let prodAmount = 2;
+        let prodFinish = 3;
+        let cartListClass = 0;
 
-        for (let x = 0; x < quantity; x++) {        
-            let url = "http://localhost:8888/projects/OnlineStoreFullStack/api/products/" + cartArray[id];
-        
-            const xhr = new XMLHttpRequest();       
-            xhr.open("GET", url, false);  
-            xhr.onreadystatechange = function () {
-            var DONE = 4;
-            var OK = 200;
+            for (let x = 0; x < quantity; x++) {        
+                let url = "../OnlineStoreFullStack/api/products/" + cartArray[id];
             
-            if (xhr.readyState === DONE) {
-                if (xhr.status === OK) {
-                    let url = window.location.href;
-                    let lastPart = url.substr(url.lastIndexOf('/') + 1);
+                const xhr = new XMLHttpRequest();       
+                xhr.open("GET", url, false);  
+                xhr.onreadystatechange = function () {
+                var DONE = 4;
+                var OK = 200;
+                
+                if (xhr.readyState === DONE) {
+                    if (xhr.status === OK) {
+                        let url = window.location.href;
+                        let lastPart = url.substr(url.lastIndexOf('/') + 1);
 
-                    let array = xhr.responseText; 
-                    let data = JSON.parse(array); 
+                        let array = xhr.responseText; 
+                        let data = JSON.parse(array); 
 
-                    let prodCost = data[0]['cost'];
-                    let prodName = data[0]['product_name'];  
-                    console.log(prodName);               
-                    let prodImage = data[0]['image_one'];           
+                        let prodCost = data[0]['cost'];
+                        let prodName = data[0]['product_name'];             
+                        let prodImage = data[0]['image_one'];           
 
-                    let cartImage = document.getElementsByClassName('cartProdImage');
-                    let cartProdTitle = document.getElementsByClassName('cartProdTitle');
-                    let cartQuantity = document.getElementsByClassName('cartProdQuantity');
-                    let cartCost = document.getElementsByClassName('cartProdCost');
-                    let totalCost = document.getElementsByClassName('cartProdTotalCost');
-                    let cartFinish = document.getElementsByClassName('cartProdFinish');
-                    let updateCart = document.getElementsByClassName('updateProdCart');
-                    let removeFromCart = document.getElementsByClassName('removeProdFromCart');
+                        let cartImage = document.getElementsByClassName('cartProdImage');
+                        let cartProdTitle = document.getElementsByClassName('cartProdTitle');
+                        let cartQuantity = document.getElementsByClassName('cartProdQuantity');
+                        let cartCost = document.getElementsByClassName('cartProdCost');
+                        let totalCost = document.getElementsByClassName('cartProdTotalCost');
+                        let cartFinish = document.getElementsByClassName('cartProdFinish');
+                        let updateCart = document.getElementsByClassName('updateProdCart');
+                        let removeFromCart = document.getElementsByClassName('removeProdFromCart');
 
-                    
-                    cartProdTitle[cartListClass].innerHTML = prodName;
-                    cartQuantity[cartListClass].value = cartArray[prodAmount];
-                    cartCost[cartListClass].innerHTML = prodCost;
-                    cartCost[cartListClass].value = prodCost;
-                    totalCost[cartListClass].innerHTML = prodCost * cartArray[prodAmount];
-                    cartFinish[cartListClass].innerHTML = cartArray[prodFinish]
-
-                    if (lastPart === 'cart.html') {
-                        cartImage[cartListClass].src = './assets/products/productImages/' + prodImage;
-                        updateCart[cartListClass].id = id;
-                        removeFromCart[cartListClass].id = id;
+                        
+                        cartProdTitle[cartListClass].innerHTML = prodName;
                         cartQuantity[cartListClass].value = cartArray[prodAmount];
+                        cartCost[cartListClass].innerHTML = prodCost;
+                        cartCost[cartListClass].value = prodCost;
+                        totalCost[cartListClass].innerHTML = prodCost * cartArray[prodAmount];
+                        cartFinish[cartListClass].innerHTML = cartArray[prodFinish]
+
+                        if (lastPart === 'cart.html') {
+                            cartImage[cartListClass].src = './assets/products/productImages/' + prodImage;
+                            updateCart[cartListClass].id = id;
+                            removeFromCart[cartListClass].id = id;
+                            cartQuantity[cartListClass].value = cartArray[prodAmount];
+                        } else {
+                            document.getElementById('checkoutButton').style.display = 'none';
+                            cartQuantity[cartListClass].innerHTML = cartArray[prodAmount];
+                        }
+
+                        productTotal = productTotal + (prodCost * cartArray[prodAmount]) ;
+                    
+                        let divClone = document.getElementById('cartProdContainer'),
+                        clone = divClone.cloneNode(true);
+                        clone.id = 'cartProdContainer' + cartListClass;
+                        document.getElementById('cloneProdCart').appendChild(clone);
+
+                        prodId = prodId + 3;
+                        prodAmount = prodAmount + 3;
+                        prodFinish = prodFinish + 3;
+    
+                        return productTotal;            
                     } else {
-                        document.getElementById('checkoutButton').style.display = 'none';
-                        cartQuantity[cartListClass].innerHTML = cartArray[prodAmount];
+                        console.log('Error: ' + xhr.status);
                     }
-
-                    productTotal = productTotal + (prodCost * cartArray[prodAmount]) ;
-                 
-                    let divClone = document.getElementById('cartProdContainer'),
-                    clone = divClone.cloneNode(true);
-                    clone.id = 'cartProdContainer' + cartListClass;
-                    document.getElementById('cloneProdCart').appendChild(clone);
-
-                    prodId = prodId + 3;
-                    prodAmount = prodAmount + 3;
-                    prodFinish = prodFinish + 3;
- 
-                    return productTotal;            
-                } else {
-                    console.log('Error: ' + xhr.status);
                 }
-            }
-        };       
-        xhr.send();     
-        id = id + 3;
-        amount = amount + 3;
-        finish = finish + 3;
-        cartListClass = cartListClass + 1;           
-    }           
+            };       
+            xhr.send();     
+            id = id + 3;
+            amount = amount + 3;
+            finish = finish + 3;
+            cartListClass = cartListClass + 1;           
+        } 
+    }          
 }
 
 
@@ -453,6 +456,67 @@ const grandTotal = () => {
     document.getElementById('grandTotal').innerHTML = grandTotal;
 }
 
+
+// Function takes in order and delivery address and updates the database
+
+function placeOrder() {
+
+    let user = sessionStorage.getItem('wheatleyUsers');
+    let products = localStorage.getItem('wheatleyCartProducts');
+    let sets = localStorage.getItem('wheatleyCart');
+    let array = user.split(',');
+    let id = array[0];
+    
+
+
+    // url endpoint used to update billing and delivery address on user
+    const url = "../OnlineStoreFullStack/api/delivery";
+    const xhr = new XMLHttpRequest(); 
+    //Variables that capture delivery address
+    let delLineOne = document.getElementById('deliveryLine1').value;
+    let delLineTwo = document.getElementById('deliveryLine2').value;
+    let delLineThree= document.getElementById('deliveryLine3').value;
+    let delLineFour = document.getElementById('deliveryLine4').value;
+    let delLineFive = document.getElementById('deliveryLine5').value;
+
+    let deliveryAddress = delLineOne + '%20' + delLineTwo + ' ' + delLineThree + ' ' + delLineFour + ' ' + delLineFive;
+    let billing = '';
+    let sameAsDel = document.getElementById('sameAsDel');
+
+    
+    if (sameAsDel.checked) {
+        billing = delLineOne + ' ' + delLineTwo + ' ' + delLineThree + ' ' + delLineFour + ' ' + delLineFive;      
+    } else {
+        //variables that capture billing if different to delivery
+        let bilLineOne = document.getElementById('billingLine1').value;
+        let bilLineTwo = document.getElementById('billingLine2').value;
+        let bilLineThree= document.getElementById('billingLine3').value;
+        let bilLineFour = document.getElementById('billingLine4').value;
+        let bilLineFive = document.getElementById('billingLine5').value;
+
+        billing = bilLineOne + ' ' + bilLineTwo + ' ' + bilLineThree + ' ' + bilLineFour + ' ' + bilLineFive;
+    }
+
+    const values = "id=" + id + "&delivery=" + deliveryAddress + "&billing=" + billing + '&sets=' + sets + '&products=' + products;
+
+    xhr.onreadystatechange = function () {
+        var DONE = 4;
+        var OK = 200;      
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    let response = xhr.responseText;   
+                    console.log(response); 
+                    window.location.replace('../OnlineStoreFullStack/orderReceived.html'); 
+                    localStorage.removeItem('wheatleyCartProducts');
+                    localStorage.removeItem('wheatleyCart');
+                    }
+                }
+            }  
+        
+    xhr.open("POST", url);  
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+    xhr.send(values)      
+} 
 
 
 

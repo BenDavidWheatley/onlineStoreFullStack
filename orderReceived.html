@@ -2,13 +2,12 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css" type="text/css">
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <title>Wheatley Studios</title>
     </head>
 
-    <body class='blackBackground' onload='numberInCart()'>
+    <body onload='numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -33,39 +32,31 @@
                     <div class='menuSeven' id='cartAndQuant'>   
                         <a href='cart.html'><p>Cart </p></a>    
                         <p id='cartQuant'></p>
-                    </div>         
+                    </div>        
                 </div>
+
                 <div class='dropdownTwo' onclick='openMenu()'></div>
             </div>  
         </header>
 
-        <main class='main full'>
+        <main class='full'>  
+            
             <section class='contactBanner'>
-                <div class='loginBannerText'>
-                    <h1 id='loginTitle'><span>Sign in,<br></span>Or create an account</h1>
-
-                    <div class='accountLogin'>
-                        <label for='email' >Email</label>
-                        <input id='emailLogin' type='email' pattern='[a-zA-Z0-9\s]+' name='email'>
-
-                        <label for='password'>Password</label>
-                        <input id='loginPassword' type='password' pattern='[a-zA-Z0-9\s]+' name='password'>
-                        <p id='returnLogin'></p> 
-                        <div class='loginButtonCont'>
-                            <button class='loginButton' onclick="login()">Login</button>
-                            <button class='loginButton' onClick="location.href='createAccount.html'"> Create an account</button> 
-                        </div>
-                    </div>
-                                        
+                <div class='contactBannerText'>
+                    <h1><span>Thank you<br> </span>for your order</h1>
+                    <p>An email of confirmation will be sent out to you.
+                    </p>
+                    <a id='backToMain' href='index.html'><button id='back' >Main Menu</button></a>
                 </div>
-    
+                
                 <div class='contactImage'>
-                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg'>         
+                    <img  class='contactImage' src='./assets/products/heroBanners/twoTierWhite.jpg' alt='two tier modular shelving system on white background'>         
                 </div>            
             </section>
+            <section class='margin'></section>
         </main>
 
-        <footer class='footerContainer nonHomePageFooter loginFooter'>
+        <footer class='footerContainer nonHomePageFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
                 <div class='timesContainer'>
@@ -116,8 +107,8 @@
                 </div>
             </section>   
         </footer>
-        
-        <script src='script/script.js'></script> 
-        <script src='script/api.js'></script> 
+
+        <script src='script/api.js'></script>
+        <script src='script/script.js'></script>
     </body>
-</html> 
+</html>

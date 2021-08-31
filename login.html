@@ -8,7 +8,7 @@
         <title>Wheatley Studios</title>
     </head>
 
-    <body class='blackBackground' onload='numberInCart()'>
+    <body onload='numberInCart()'>
         <header >
             <div class='headerColor'>
                 <section id='headerLogo'>
@@ -39,10 +39,10 @@
             </div>  
         </header>
 
-        <main class='main'>
+        <main class='main full'>       
             <section class='contactBanner'>
                 <div class='loginBannerText'>
-                    <h1><span>Sign in,<br></span>Or create an account</h1>
+                    <h1 id='loginTitle'><span>Sign in,<br></span>Or create an account</h1>
 
                     <div class='accountLogin'>
                         <label for='email' >Email</label>
@@ -50,13 +50,12 @@
 
                         <label for='password'>Password</label>
                         <input id='loginPassword' type='password' pattern='[a-zA-Z0-9\s]+' name='password'>
-                        <p id='returnLogin'></p> 
+                        
                         <div class='loginButtonCont'>
                             <button class='loginButton' onclick="login()">Login</button>
                             <button class='loginButton' onClick="location.href='createAccount.html'"> Create an account</button> 
                         </div>
-                    </div>
-                                        
+                    </div>                       
                 </div>
     
                 <div class='contactImage'>
@@ -64,8 +63,7 @@
                 </div>            
             </section>
         </main>
-
-        <footer class='footerContainer nonHomePageFooter'>
+        <footer class='footerContainer nonHomePageFooter loginFooter'>
             <section class='footerInfo'>
                 <h3>Opening Hours</h3>
                 <div class='timesContainer'>
@@ -101,7 +99,7 @@
             </section>
 
             <div class='verticalBreak'></div>
-            
+
             <section class='footerInfo'>
                 <h3>Contact</h3>
                 <p><span>Phone:</span><a href="tel:081-352-3313">081 352 3313</a></p>
@@ -116,6 +114,7 @@
                 </div>
             </section>   
         </footer>
+   
         
         <script src='script/script.js'></script> 
         <script src='script/api.js'></script> 

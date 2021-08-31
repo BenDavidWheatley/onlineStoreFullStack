@@ -4,12 +4,12 @@
 
 /**************************** Variables ****************************/
 
-//The following variables are the trigger points for the background image on the main index.html
+//The following variables are the trigger points for the header color change and scroll button
 
 let scrollTrigger = 200;
-let scrollTriggerTwo = 1800;
+let scrollTriggerTwo = 1500;
 let scrollTriggerThree = 3300;
-let scrollTriggerFour = 5700;
+let scrollTriggerFour = 5400;
 
 //targets the header and allows for change of color on click and scroll
 
@@ -46,44 +46,48 @@ let seeMoreStaffInfo = document.getElementsByClassName("staffViewMore");
 
 /****************************   FUNCTIONS   ****************************/
 
-
-//The following function changes the background image of the index.html and runs on scrolls
-
 window.onscroll = function() {
-    
-        if (window.scrollY >= scrollTriggerFour  && lastPart === 'index.html' ){
-            document.getElementById('heroImage').src= "./assets/logos/socialBanner.jpg";        
-        } 
-        else if (window.scrollY >= scrollTriggerThree  && lastPart === 'index.html' ){
-            document.getElementById('heroImage').src= "./assets/products/heroBanners/threeTierOffice.jpg";
-        } 
-        else if (window.scrollY >= scrollTriggerTwo  && lastPart === 'index.html' ){
+
+    // the if else changes the background of the 
+    // fixed image when the bottom of relevant elements are at 0px position of the DOM
+    if (lastPart === 'index.html') {
+        if(document.getElementById("firstBackgroundChange").getBoundingClientRect().bottom <= 0 && document.getElementById("secondBackgroundChange").getBoundingClientRect().bottom >= 0) {
             document.getElementById('heroImage').src= "./assets/products/heroBanners/threeTierDinning.jpg";
-        } 
-        else if (window.scrollY >= scrollTrigger && lastPart === 'index.html' ) {
-            pinkHeader[0].classList.add('pinkHeader');    
-            document.getElementById('logoBlack').style.display = 'none';
-            document.getElementById('logoWhite').style.display = 'block';
+            document.getElementById("heroImage").style.transform = 'translate(0, 50px)';
+        } else if (document.getElementById("secondBackgroundChange").getBoundingClientRect().bottom <= 0 && document.getElementById("thirdBackgroundChange").getBoundingClientRect().bottom >= 0){
+            document.getElementById('heroImage').src= "./assets/products/heroBanners/threeTierOffice.jpg";
+            document.getElementById("heroImage").style.transform = 'translate(0, 100px)';
+        } else if (document.getElementById("thirdBackgroundChange").getBoundingClientRect().bottom <= 0){
+            document.getElementById('heroImage').src= "./assets/logos/socialBanner.jpg";   
+        }else {
             document.getElementById('heroImage').src= "./assets/products/heroBanners/twoTierWhite.jpg";
-            backToTop[0].classList.add('scrollBackShow');     
-        }
-        else if (window.scrollY >= scrollTrigger && lastPart !== 'index.html' ){
-            whiteHeader[0].classList.add('white');
-            backToTop[0].classList.add('scrollBackShow');      
-        } 
-        else if (window.scrollY <= scrollTrigger && lastPart !== 'index.html' ){
-            whiteHeader[0].classList.remove('white');
-            backToTop[0].classList.remove('scrollBackShow');
-        }
-        else {
-            backToTop[0].classList.remove('scrollBackShow');
-            pinkHeader[0].classList.remove('pinkHeader');
-            document.getElementById('logoBlack').style.display = 'block';
-            document.getElementById('logoWhite').style.display = 'none';  
+            document.getElementById("heroImage").style.transform = 'translate(0, 0px)';
+        };
+    }
+    // This if else triggers the scroll button and header color changes
+        
+    if (window.scrollY >= scrollTrigger && lastPart === 'index.html' ) {
+        pinkHeader[0].classList.add('pinkHeader');    
+        document.getElementById('logoBlack').style.display = 'none';
+        document.getElementById('logoWhite').style.display = 'block';
+        backToTop[0].classList.add('scrollBackShow');     
+    }
+    else if (window.scrollY >= scrollTrigger && lastPart !== 'index.html' ){
+        whiteHeader[0].classList.add('white');
+        backToTop[0].classList.add('scrollBackShow');      
+    } 
+    else if (window.scrollY <= scrollTrigger && lastPart !== 'index.html' ){
+        whiteHeader[0].classList.remove('white');
+        backToTop[0].classList.remove('scrollBackShow');
+    }
+    else {
+        backToTop[0].classList.remove('scrollBackShow');
+        pinkHeader[0].classList.remove('pinkHeader');
+        document.getElementById('logoBlack').style.display = 'block';
+        document.getElementById('logoWhite').style.display = 'none';  
     }
     }   
 ;
-
 
 // The following three functions create a transition that expands elements or brings them into, i.e the menu
 // It does this by toggling a class
@@ -364,38 +368,47 @@ const numberInCart = () => {
     // pulls info in from local storage, divides it by 3 as each 3 items within the storage is part of the one product
     let existingData = localStorage.getItem('wheatleyCart');
     let existingProductData = localStorage.getItem('wheatleyCartProducts');
-    let setArray = existingData.split(',');
-    let productArray = existingProductData.split(',');
-    let quantity = Math.floor(productArray.length / 3);
-    let prodQuant = Math.floor(setArray.length / 3);
 
-    console.log(quantity + prodQuant);
-
-    //checks to see if there is more then 0 items in there 
-
-    if (quantity !== 0) {
-        console.log('block');
+    if (existingData && existingProductData) {
+        let setArray = existingData.split(',');
+        let productArray = existingProductData.split(',');
+        let quantity = Math.floor(productArray.length / 3);
+        let prodQuant = Math.floor(setArray.length / 3);
         document.getElementById('cartQuant').innerHTML = quantity + prodQuant;
         document.getElementById('cartQuant').style.display = 'block';
-    } else {
-        document.getElementById('cartQuant').style.display = 'none';
-    }    
-}
-
+        } else if (existingData) {
+            let setArray = existingData.split(',');
+            let prodQuant = Math.floor(setArray.length / 3);
+            document.getElementById('cartQuant').innerHTML = prodQuant;
+            document.getElementById('cartQuant').style.display = 'block';
+        } else if (existingProductData) {
+            let productArray = existingProductData.split(',');
+            let quantity = Math.floor(productArray.length / 3);
+            document.getElementById('cartQuant').innerHTML = quantity;
+            document.getElementById('cartQuant').style.display = 'block';
+        } else {
+            document.getElementById('cartQuant').style.display = 'none';
+        } 
+    }
+     
 
 // This function checks to see if the cart is empty 
 
 const emptyCart = () => {
-    let existingData = localStorage.getItem('wheatleyCart').length;
-    let existingProductData = localStorage.getItem('wheatleyCartProducts').length;
-    let total = existingData + existingProductData;
-    if (total < 9){
-        document.getElementById('emptyCart').innerHTML = 'Your cart is empty';
-        document.getElementById('checkoutButton').style.display = 'none';
-    } else {
-        document.getElementById('checkoutButton').style.display = 'block';
-    }
+    console.log('test');
+    let existingSet = localStorage.getItem('wheatleyCart');
+    let existingProduct = localStorage.getItem('wheatleyCartProducts');
 
+    if (existingSet && existingProduct) {
+        document.getElementById('checkOutContainer').style.display = 'block';     
+    } else if (existingSet){
+        document.getElementById('checkOutContainer').style.display = 'block';
+    } else if (existingProduct) {
+        document.getElementById('checkOutContainer').style.display = 'block';
+    }else {
+        document.getElementById('emptyCart').innerHTML = 'Your cart is empty';
+        document.getElementById('checkOutContainer').style.display = 'none';
+    }
 }
 
 
@@ -407,9 +420,9 @@ const checkout = () => {
 
     // Checks to see if logged in
     if (!loggedIn) {
-        window.location.replace('http://localhost:8888/projects/OnlineStoreFullStack/loginCheckout.html');   
+        window.location.replace('../OnlineStoreFullStack/loginCheckout.html');   
     }else {
-        window.location.replace('http://localhost:8888/projects/OnlineStoreFullStack/checkout.html');   
+        window.location.replace('../OnlineStoreFullStack/checkout.html');   
     }
 }
 

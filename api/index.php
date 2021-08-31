@@ -201,6 +201,51 @@ $wheatleyStore->post('/login', function (Request $request, Response $response, a
     }
 });
 
+$wheatleyStore->post('/delivery', function (Request $request, Response $response, array $args) {
+    require_once 'connect.php';  
+    $id = $_POST['id'];  
+    $delivery = $_POST['delivery'];
+    $billing = $_POST['billing'];
+    $sets = $_POST['sets'];
+    $products = $_POST['products'];
+  
+    $sql = "SELECT * FROM users WHERE id = ?;";
+    $stmt = mysqli_stmt_init($mysqli);
+
+
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        echo 'SQL statements failed';
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $id );
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $existing = mysqli_fetch_assoc($result);
+
+        $sqlTwo = "UPDATE users SET delivery_address = ?, billing_address = ? WHERE id = ?;";    
+        $stmtTwo = mysqli_stmt_init($mysqli);
+
+        if (!mysqli_stmt_prepare($stmtTwo, $sqlTwo )) {
+            echo "SQL Error";
+           
+        } else {
+            mysqli_stmt_bind_param($stmtTwo, "sss", $delivery, $billing, $id);
+            mysqli_stmt_execute($stmtTwo);
+            echo 'User updated';
+
+            $sqlThree = 'INSERT INTO orders (users_id, product_sets, products) VALUES (?,?,?);';
+            $stmtThree =  mysqli_stmt_init($mysqli);
+            if(!mysqli_stmt_prepare($stmtThree, $sqlThree)) {
+                echo 'error uploading order';
+            } else {
+                mysqli_stmt_bind_param($stmtThree, "sss", $id, $sets, $products);
+                mysqli_stmt_execute($stmtThree);
+                echo 'order created';
+            }
+        }
+        
+    }});
+
 $wheatleyStore->run();
 
 

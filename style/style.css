@@ -101,8 +101,8 @@ button:hover{
     border-style: none;
     color: white;
 }
-.blackBackground {
-    background-color: #232322;
+.full {
+    min-height: 100vh;
 }
 
 
@@ -250,6 +250,7 @@ header {
 .footerInfo {
     margin: auto;
     margin-top: 0px;
+    
 }
 .footerInfo h3{
     margin-bottom: 30px;
@@ -282,7 +283,7 @@ header {
 .verticalBreak {
     height: 250px;
     width: 1px;
-    margin: 20px;
+    margin: 40px;
     background-color: #E8A69D;
     z-index: 1;  
 }
@@ -532,6 +533,7 @@ border-bottom: 1px solid #E8A69D;
     padding-left: 10%;
     padding-right: 20%;
 }
+
 .socialHeader {
     margin-bottom: 50px;
 }
@@ -590,23 +592,14 @@ border-bottom: 1px solid #E8A69D;
 
 /********   HOMESELECTION.HTML  ********/
 
-.homeSelection {
-    background-image: url('../assets/products/heroBanners/twoTierDinning.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    justify-content: start;   
-    align-items: flex-start;
-    background-color: white;
-}
 
 
 /********  OFFICESELECTION.HTML  ********/
 
 .office{
-    background-image: url('../assets/products/heroBanners/twoTierOffice.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-color: #232322;
+ 
+
+    background-color: white;
     justify-content: start; 
     align-items: flex-start;
    }
@@ -812,36 +805,41 @@ article.expanded {
     font-size: 1em;
     line-height: 1.5em;
 }
+.officeText {
+    align-items: flex-start;
+    margin-left: 20px;
+}
+.officeText  h1 {
+    margin-top: 10%;
+}
 .contactImage img {
     width: 100vw; 
     height: auto;
 }
-#contactForm{
+#contactForm, #signUpForm{
     display: flex;
     flex-direction: column;
-    align-items: center;
+
     width: 50%;
     margin: auto;
     margin-top: 80px;
 }
-#contactForm input, #contactForm textarea {
-    width: 60%;
+#contactForm input, #contactForm textarea, #signUpForm input, #signUpForm textarea {
+    width: 100%;
     margin: auto;
 }
-#contactForm input{
-    height: 30px;
-}
-#contactForm button {
+#contactForm button, #signUpForm button {
     width: 60%;
     margin-top: 80px;
 }
-#contactForm label {
-    font-size: 1.5em;
+#contactForm label, #signUpForm label {
     margin-top: 50px;
-    margin-bottom: 10px;
+ 
 }
 #locationsHeader {
     text-align: center;
+    width: 60%;
+    margin: auto;
     margin-top: 150px;
     margin-bottom: 40px;
     border-bottom: 1px solid #E8A69D
@@ -890,6 +888,15 @@ iframe {
     text-decoration: none;
     width: 300px;
 }
+#contactUsContainer h1 {
+    width: 60%;
+    margin:auto;
+    text-align: center;
+    border-bottom: 1px solid #E8A69D;
+}
+#contactUsContainer {
+    margin-top: 200px;
+}
 
 
 /********   STAFF.HTML  ********/
@@ -905,17 +912,25 @@ iframe {
     height: auto;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 100px;
     margin-bottom: 100px;
 }
+.reverseColumn {
+    flex-wrap: wrap-reverse;
+}
 .staffCopy {
-    margin: 40px;
+    margin: auto;
     margin-top: 0px;
+    width: 70%;
 }
 .staffPic {
     width: auto;
-    height: 400px;
+    height: 300px;
     border-radius: 5px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 0px; 
 }
 .staffProfile h1 {
     font-size: 2em;
@@ -964,7 +979,7 @@ iframe {
     width: 80%;
     text-align: center;
     margin: auto;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     border-bottom: 1px solid #E8A69D;
 }
 #cartContainer, #cartProdContainer{
@@ -990,21 +1005,24 @@ iframe {
 }
 .cloneCart, .cloneProdCart {
     width: 100%;
-    margin-bottom: 80px;
-
 }
 .cartProdContainer, .cartContainer {
     width: 80%;
     margin: auto;
     display: flex;
+    margin-top: 80px;
 }
 .cartProdImage, .cartImage {
-    height: 200px;
+    height: 150px;
     width: auto;
     margin-left: 5%;
 }
 .cartInfoContainer, .cartProdInfoContainer {
-    margin-left: 20%;
+    margin-left: 10%;
+    width: 60%;
+}
+.cartInfoContainer p, .cartProdInfoContainer p {
+    width: 90%;
 }
 .checkoutProducts {
     margin: auto;
@@ -1021,12 +1039,22 @@ iframe {
 }
 .cartButton, .cartRemoveButton {
     width: 45%;
+    height: 30px;
+    margin-top: 20px;
 }
-
 .cartRemoveButton:hover {
     background-color: #D85E40;
-
 }
+#checkOutContainer, #emptyCart {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    text-align: end;
+}
+
+
 
 /******** LOGIN.HTML ********/
 
@@ -1050,12 +1078,11 @@ iframe {
     width: 300px;
     font-size: 2em;
     letter-spacing: .1em;
-    width: 300px;
+    width: 400px;
     margin-bottom: 20px;
 }
 .loginBannerText  p {
-    width: 300px;
-    margin-right: 10%;
+    width: 400px;
     font-size: 1em;
     line-height: 1.5em;
 }
@@ -1073,7 +1100,8 @@ iframe {
     margin-top: 10px;
 }
 .loginButton {
-    background-color: #232322;
+    background-color: #E8A69D;
+    margin-top: 20px;
     margin-left: 2%;
     margin-right: 2%;
 }
@@ -1095,7 +1123,34 @@ iframe {
     margin: 10px;
     font-size: 1.2em;
 }
+#newUserButton {
+    margin-bottom: 200px;
+}
+#loginTitle {
+    width: 30%;
+}
+/******** CHECK OUT ********/
 
+#delBillingForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+#delBillingForm label{
+    margin-top: 30px;
+}
+#delBillingForm h2 {
+    text-align: center;
+    margin-top: 80px;
+}
+#checkoutPrice {
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid #E8A69D;
+    font-size: 1.2em;
+}
 
 /******** ANIMATION ********/
 
@@ -1110,10 +1165,201 @@ iframe {
 
 @media only screen and (max-width: 768px){
 
+    /******** GENERAL ********/
+
+    .contactBannerText h1 {
+        margin-top: 10%;
+    }
+    .designYourOwn {
+        justify-content: flex-end;
+        
+    }
+    .rangeContainer {
+        padding-top: 0px;
+    }
+    .indexVH {
+       margin-top: 300px;
+    }
+    
+    /******** HEADER, MENU AND FOOTER ********/
+    .footerContainer{
+        padding-left: 20px;
+        flex-direction: column;
+    }
+    .verticalBreak {
+        margin: 0px;
+        padding: 0px;
+        height: 1px;
+        width: 400px;
+    }
+    .dropdown.dropdownMenu {
+        margin-left: 50%;
+        width: 50%;
+    }
+    .footerInfo {
+        margin: auto;
+        margin-bottom: 40px;
+    }
+    .contactInfo {
+        width: 50%;
+        margin: auto;
+    }
+    .loginFooter {
+        transform: translateY(200px);
+    }
+    /******** Scroll ********/
+    .scrollBackShow {
+        left: 80%;
+    }
+    /******** BUILDYOUROWN.HTML ********/
+
+    .designYourOwn p {
+        padding-bottom: 100px;
+    }
+    /******** PRODUCT DETAILS ********/
+
+    .mainProductContainer {
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        justify-items: center;
+    }
+    .imageContainer, .specContainer {
+        margin: auto;
+        width: 80%;      
+    }
+    .productHeaderOne {
+        margin-top: 50px;
+    }
+    #productTitle {
+        text-align: center;
+    }
+    .addToCartForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #productSetDescription, #productDescription{
+        margin-top: 30px;
+    }
+    .productInformation p, .productInformation h2 {
+        text-align: center;
+        margin: auto;
+    }
+    .productInformation h2 {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+   .optSpecCareCont {
+       margin: auto;
+       margin-top: 40px;
+       width: 80%;
+   }
+   .moreInformation {
+       width: 100%;
+
+   }
+   #optSpecCareContainer {
+       width: 80%;
+       margin: auto;
+       margin-top: 30px;
+   }
+    /******** CART.HTML ********/
+
+    .cartContainer, .cartProdContainer  {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cartImage{
+        margin-bottom: 50px;
+    }
+    #checkOutContainer, #emptyCart {
+        width: 60%;
+    }
+    /******** CONTACTUS.HTML ********/
+    #contactForm, #signUpForm {
+        width: 60%;
+    }
+    #contactUsContainer {
+        margin-top: 250px;
+    }
+    
+    
+    /******** STAFF.HTML ********/
+
+    .benProfile {
+        margin-top: 0px;
+    }
+    /********* LOGIN ********/
+
+    .loginBannerText {
+        width: 100%;
+        top: 500px;
+    }
+    #loginTitle {
+        width: 100%;
+        text-align: center; 
+        margin-bottom: 50px;
+       transform: translateX(50px);
+    }
+
+    .loginButtonCont button {
+        width: 45%;
+        margin-bottom: 100px;
+    }
+    .accountLogin {
+        width:80%;
+    }
+
+    
 }
 
 /* mobile*/
 
 @media only screen and (max-width: 550px){
+
+    /******** GENERAL ********/
+
+    .contactBannerText {
+        margin-top: 60%;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .contactBannerText  h1, .contactBannerText  p {
+        margin-right: 0px;
+        width: 80%;
+    } 
+   
+    /******** HEADER, MENU AND FOOTER ********/
+
+    .dropdown.dropdownMenu {
+        margin-left: 30%;
+        width: 70%;
+    }
+    .verticalBreak {
+        margin: auto;
+        width: 200px;
+    }
+    /******** CONTACTUS.HTML ********/
+    #contactForm, #signUpForm, .margin {
+        width: 80%;
+        margin-top: 50px;
+    }
+    .rangeContainer {
+        margin-top: 200px;
+    }
+    #contactUsContainer {
+        margin-top: 400px;
+    }
+    /******** ACCOUNTS ********/
+    #newAccountHeader{
+        text-align: center;
+    }
+    #backToMain {
+        margin: auto;
+        width: 100%; 
+        text-align: center;   
+    }
 
 }
