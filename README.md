@@ -12,7 +12,7 @@
 <p>Scrolling down the main page will bring up various products on the store that you can click on a view</p>
 <p>You can also subscribe to our news letter, this will save your email to the database</p>
 
-<h1> Header Menu <h1>
+<h1> Header Menu </h1>
 
 <p>Clicking on the menu button will bring up the navigation menu for the various pages on the site.
 Use the header menu to navigate.</p>
