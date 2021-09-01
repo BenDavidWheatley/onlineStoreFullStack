@@ -21,6 +21,10 @@ let whiteHeader = document.getElementsByClassName('headerColor');
 let url = window.location.href;
 let lastPart = url.substr(url.lastIndexOf('/') + 1);
 
+// this variable will be used to load the functions when the page is first load from 
+// file as it will not be index.html
+let lastPartLength = url.substr(url.lastIndexOf('/') + 1).length;
+
 // targets the back to the top button
 
 let backToTop = document.getElementsByClassName('scrollImage');
@@ -43,14 +47,14 @@ let menuSeven = document.getElementsByClassName('menuSeven');
 let bioInfoDrop = document.getElementsByClassName('aboutStaffMember');
 let seeMoreStaffInfo = document.getElementsByClassName("staffViewMore");
 
-
+console.log(lastPartLength);
 /****************************   FUNCTIONS   ****************************/
 
 window.onscroll = function() {
 
     // the if else changes the background of the 
     // fixed image when the bottom of relevant elements are at 0px position of the DOM
-    if (lastPart === 'index.html') {
+    if (lastPart === 'index.html' || lastPartLength === 0) {
         if(document.getElementById("firstBackgroundChange").getBoundingClientRect().bottom <= 0 && document.getElementById("secondBackgroundChange").getBoundingClientRect().bottom >= 0) {
             document.getElementById('heroImage').src= "./assets/products/heroBanners/threeTierDinning.jpg";
             document.getElementById("heroImage").style.transform = 'translate(0, 50px)';
@@ -66,17 +70,17 @@ window.onscroll = function() {
     }
     // This if else triggers the scroll button and header color changes
         
-    if (window.scrollY >= scrollTrigger && lastPart === 'index.html' ) {
+    if (window.scrollY >= scrollTrigger && (lastPart === 'index.html' || lastPartLength === 0 ) ) {
         pinkHeader[0].classList.add('pinkHeader');    
         document.getElementById('logoBlack').style.display = 'none';
         document.getElementById('logoWhite').style.display = 'block';
         backToTop[0].classList.add('scrollBackShow');     
     }
-    else if (window.scrollY >= scrollTrigger && lastPart !== 'index.html' ){
+    else if (window.scrollY >= scrollTrigger && lastPart !== 'index.html'){
         whiteHeader[0].classList.add('white');
         backToTop[0].classList.add('scrollBackShow');      
     } 
-    else if (window.scrollY <= scrollTrigger && lastPart !== 'index.html' ){
+    else if (window.scrollY <= scrollTrigger && lastPart !== 'index.html' && lastPartLength > 0 ){
         whiteHeader[0].classList.remove('white');
         backToTop[0].classList.remove('scrollBackShow');
     }
@@ -86,7 +90,7 @@ window.onscroll = function() {
         document.getElementById('logoBlack').style.display = 'block';
         document.getElementById('logoWhite').style.display = 'none';  
     }
-    }   
+}   
 ;
 
 // The following three functions create a transition that expands elements or brings them into, i.e the menu
@@ -103,7 +107,7 @@ const openSpec = () => {
 }; 
 
 const openMenu = () => {
-    if (lastPart !== 'index.html'){
+    if (lastPart !== 'index.html' && lastPartLength > 0){
         whiteHeader[0].classList.add('white');  
     } else {
         pinkHeader[0].classList.toggle('white');
