@@ -242,8 +242,7 @@ $wheatleyStore->post('/delivery', function (Request $request, Response $response
                 mysqli_stmt_execute($stmtThree);
                 echo 'order created';
             }
-        }
-        
+        }    
     }});
 
 $wheatleyStore->run();
