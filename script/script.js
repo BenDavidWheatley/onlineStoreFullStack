@@ -21,7 +21,7 @@ let whiteHeader = document.getElementsByClassName('headerColor');
 let url = window.location.href;
 let lastPart = url.substr(url.lastIndexOf('/') + 1);
 
-// this variable will be used to load the functions when the page is first load from 
+// this variable will be used to load the functions when the page is first loaded from 
 // file as it will not be index.html
 let lastPartLength = url.substr(url.lastIndexOf('/') + 1).length;
 
@@ -48,9 +48,12 @@ let bioInfoDrop = document.getElementsByClassName('aboutStaffMember');
 let seeMoreStaffInfo = document.getElementsByClassName("staffViewMore");
 
 console.log(lastPartLength);
+
 /****************************   FUNCTIONS   ****************************/
 
 window.onscroll = function() {
+
+
 
     // the if else changes the background of the 
     // fixed image when the bottom of relevant elements are at 0px position of the DOM
@@ -99,6 +102,7 @@ window.onscroll = function() {
 const openSpec = () => {
     article[0].classList.toggle("expanded");
     const expanded = article[0].classList.contains("expanded");
+    console.log(expanded);
     if (expanded) {
         seeMore[0].innerHTML = "See Less";
     } else {

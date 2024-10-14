@@ -512,7 +512,7 @@ function placeOrder() {
                     }
                 }
             }  
-        
+    
     xhr.open("POST", url);  
     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
     xhr.send(values)      

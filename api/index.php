@@ -7,7 +7,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 $wheatleyStore = new \Slim\App;
 
-//The following function pulls the information form the products table in the database but using the sent ID
+//The following function pulls the information from the products table in the database by using the sent ID
 // in the URL
 
 $wheatleyStore->get('/products/{id}', function (Request $request, Response $response, array $args) {

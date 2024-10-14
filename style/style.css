@@ -738,7 +738,7 @@ article {
     transition: height 0.5s linear;
 }
 article.expanded {
-    height: 1800px;
+    height: auto;
 }
 .moreInformation{
     width: 100%;
